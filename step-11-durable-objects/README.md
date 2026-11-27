@@ -1,7 +1,5 @@
 # Step 11: Per-User State with Durable Objects
 
-> 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and the code and instructions are coming soon.
-
 Some state can't wait a minute to be consistent and doesn't belong in the business database: a draft order a user builds over several tool calls, or a count of how many times they called a write tool this minute. Your MCP server keeps that kind of state in Cloudflare Durable Objects. A Durable Object is one named object (for example, one per user) with its own storage, and every request for that name reaches the same object, so reads and writes are strongly consistent. The objects are defined and bound inside the same Worker that serves `/mcp`, and the server's tools call them.
 
 > 🏬 **Stockroom's ask:** Reps build an order over several messages, and one customer's script once hammered the write tools. Stockroom wants a draft order that survives between messages and an exact per-user rate limit.
@@ -55,7 +53,7 @@ A `UserState` Durable Object, one per signed-in user, that holds a draft order a
 - **Alarms**: A timer an object sets for itself, used here to expire stale drafts.
 - **Right tool for the job**: Durable Objects for small per-key state, Neon for business records, KV for data that can be a little stale.
 
-## Planned outline
+## Outline
 
 1. Where state is allowed in a stateless server
 2. Durable Objects in one picture
@@ -74,8 +72,6 @@ A `UserState` Durable Object, one per signed-in user, that holds a draft order a
 ## Build it with Claude Code
 
 Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
-
-> These prompts are a draft and will be refined as the step is developed.
 
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 10 code into `step-11-durable-objects/`.**
 
@@ -122,7 +118,7 @@ Deploy, then give me prompts to try in Claude and ChatGPT that build a draft ord
 ## Testing targets
 
 - claude.ai and Claude Desktop (primary)
-- ChatGPT (developer mode)
+- ChatGPT (custom MCP server)
 
 ## Submission checklist
 
@@ -134,7 +130,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
 - [ ] Tenant isolation: every Durable Object is named from the company and user (`org:<orgId>:user:<userId>`), never from tool input, and the cross-tenant suite still passes
 - [ ] It works in claude.ai or Claude Desktop
-- [ ] It works in ChatGPT (developer mode)
+- [ ] It works in ChatGPT (custom MCP server)
 - [ ] Tagged `step-11-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-11-done`, live server URL, and screenshots of a draft order built over several messages and submitted, plus the rate-limit error, in **Claude** and **ChatGPT**
 

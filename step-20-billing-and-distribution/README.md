@@ -1,8 +1,6 @@
 # Step 20: Billing and Distribution: Charging for Your Server and Listing It
 
-> 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and the code and instructions are coming soon.
-
-Turn the server into something you can sell. You add plans and payment with Stripe, check every tool call against the company's plan and usage limits on the server, and prepare the server for listing in Claude's Connectors Directory and in ChatGPT's app directory: the review checklist, privacy policy, screenshots and test account a reviewer needs.
+Turn the server into something you can sell. You add plans and payment with Stripe, check every tool call against the company's plan and usage limits on the server, and prepare the server for listing in Claude's Connectors Directory and in ChatGPT's plugin directory: the review checklist, privacy policy, screenshots and test account a reviewer needs.
 
 > 🏬 **Stockroom's ask:** Stockroom needs revenue: a plan for each customer company, usage limits that protect its costs, and listings in Claude's and ChatGPT's directories so new customers can find it.
 
@@ -11,10 +9,9 @@ Turn the server into something you can sell. You add plans and payment with Stri
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
 - [17.9 How do you charge for a connector?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/charging-for-a-connector/). Value on the server, a plan check on every call, and payment outside the AI.
-- [20.15 How do the pieces fit together? "Where does the check of who has paid go?"](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-the-pieces-fit/#where-does-the-check-of-who-has-paid-go). The paid-plan check stays on the server, and no screen holds a checkout.
+- [20.15 How do the pieces fit together?, "Where does the check of who has paid go?"](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-the-pieces-fit/#where-does-the-check-of-who-has-paid-go). The paid-plan check stays on the server, and no screen holds a checkout.
 - [17.5 When is a connector worth writing?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/built-in-custom-skill-or-connector/). What a client will actually pay for.
-- [20.16 How do today's products do this?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-todays-tools-realize-it/). Where MCP Apps run today, and what each client supports.
-- [20.16 How do today's products do this? "Product reference"](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-todays-tools-realize-it/#product-reference). Each client's rules, including directory screenshots.
+- [20.16 How do today's products do this?, "Product reference"](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-todays-tools-realize-it/#product-reference). Where MCP Apps run today and each client's rules, including Claude's directory badge and the screenshots a submission needs.
 - [MCP Apps field guide F2, The interactive-connector checklist](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/field-guide-mcp-apps/#f2-the-interactive-connector-checklist). The checks to pass before you publish.
 
 **Official docs.** Keep these open while you build:
@@ -24,7 +21,7 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 - [Stripe webhooks](https://docs.stripe.com/webhooks). Updating a company's plan when a payment succeeds or a subscription ends.
 - [Claude: directory or custom connector](https://claude.com/docs/connectors/building/directory-vs-custom). When to list publicly and when to share a custom connector.
 - [Claude: submitting to the Connectors Directory](https://claude.com/docs/connectors/building/submission) and [review criteria](https://claude.com/docs/connectors/building/review-criteria). What Anthropic checks.
-- [OpenAI: submitting an app](https://developers.openai.com/apps-sdk/deploy/submission). How ChatGPT's app directory accepts apps.
+- [OpenAI: upload and submit your plugin](https://developers.openai.com/plugins/deploy/submission). How ChatGPT's plugin directory (which replaced its app directory) accepts a plugin built on your MCP server.
 
 ## Why this step matters
 
@@ -60,15 +57,16 @@ Three plans stored in Neon, a Stripe Checkout link and webhook handler that upda
 - **Cost confirmation**: Before an action that costs money, the server asks the user through elicitation, as Supabase's server does before it creates a paid project. Payment itself happens at a URL (URL mode), never in a form.
 - **Directory review**: The checks a client's directory runs before listing your server.
 
-## Planned outline
+## Outline
 
 1. What to charge for, and plan design
 2. Stripe Checkout and subscriptions
 3. Webhooks and keeping the plan in sync
 4. Plan and usage checks on every tool call
 5. Showing usage and upgrades without a checkout in the chat
-6. Preparing for Claude's and ChatGPT's directories
-7. Testing in Claude and ChatGPT
+6. Billing attack tests: the wrong company, the wrong person, repeated and late events, races and cancellations
+7. Preparing for Claude's and ChatGPT's directories
+8. Testing in Claude and ChatGPT
 
 ## Prerequisites
 
@@ -79,8 +77,6 @@ Three plans stored in Neon, a Stripe Checkout link and webhook handler that upda
 
 Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
-> These prompts are a draft and will be refined as the step is developed.
-
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 19 code into `step-20-billing-and-distribution/`.**
 
 ```text
@@ -90,13 +86,13 @@ Copy my step-19 code into step-20-billing-and-distribution/ so I can build on it
 **2. Switch to plan mode and design the plans.**
 
 ```text
-Read book lessons 17.9 and 20.15 (linked in this step). Propose three plans for this sales server with monthly limits that cover my Cloudflare and Neon costs, and plan how the server checks the plan on every tool call, where usage is counted, and how payment happens outside the chat.
+Read book lesson 17.9 and the "Where does the check of who has paid go?" section of lesson 20.15 (both linked in this step). Propose three plans for this sales server with monthly limits that cover my Cloudflare and Neon costs, and plan how the server checks the plan on every tool call, where usage is counted, and how payment happens outside the chat.
 ```
 
 **3. Add Stripe.**
 
 ```text
-Using Stripe in test mode, create the products and prices, add a Checkout link per plan, and add a webhook endpoint to the Worker that verifies Stripe's signature and updates the company's plan in Neon. Store the Stripe keys as Wrangler secrets.
+Using Stripe in test mode, create the products and prices, add a Checkout link per plan, and add a webhook endpoint to the Worker that verifies Stripe's signature and updates the company's plan in Neon. Create each Checkout session on the server for the signed-in company, only for its owner or admin, and record the session ID against that company in Neon; when the webhook arrives, find the company from that stored record, never from metadata or anything the client sent. Process each Stripe event once (store its event ID) and ignore an event older than the plan change you already applied. Store the Stripe keys as Wrangler secrets.
 ```
 
 **4. Check the plan on every call.**
@@ -105,13 +101,19 @@ Using Stripe in test mode, create the products and prices, add a Checkout link p
 Count each company's monthly usage in a Durable Object named from the company ID (org:<orgId>) and check it, with the company's plan, at the start of every tool call. When a limit is reached, return a clear, recoverable message with an upgrade link that opens outside the chat. Add a get_my_plan tool and a small widget showing plan and usage, with no checkout inside it. When the user asks to upgrade from the chat, return input_required with a URL-mode elicitation that opens the Stripe Checkout page (never a form asking for card details), and treat the plan as changed only when Stripe's webhook says so. Before an action that uses a large share of the plan, such as a year-long report, confirm with a form-mode elicitation that states how much of the monthly limit it will use. Reuse the sealed requestState helper from step 16, and keep the plain upgrade link as the fallback for clients without elicitation.
 ```
 
-**5. Prepare the directory submissions.**
+**5. Prove the billing can't be tricked.**
 
 ```text
-Read Claude's directory submission and review-criteria docs and the build-mcp-app skill's directory checklist, and OpenAI's app submission guide. Create DISTRIBUTION.md with a completed checklist, a privacy policy and terms draft, a test account plan for reviewers, and the screenshots each directory needs. Tell me what's still missing before I could submit.
+Add billing tests that must pass before this step is done: a member who isn't an owner or admin tries to upgrade the company and is refused; a webhook for a Checkout session recorded against company A can't change company B's plan, even when its metadata names B; the same event delivered twice changes the plan once; an older event arriving after a newer one doesn't undo it; twenty tool calls at once can't go past the usage limit (the Durable Object counts them one at a time); and a cancellation while a report or import is queued stops the work at its next run-time check instead of finishing on a plan the company no longer has. Run them and show me the results.
 ```
 
-**6. Deploy and test.**
+**6. Prepare the directory submissions.**
+
+```text
+Read Claude's directory submission and review-criteria docs and the build-mcp-app skill's directory checklist, and OpenAI's plugin submission guide. Create DISTRIBUTION.md with a completed checklist, a privacy policy and terms draft, a test account plan for reviewers, and the screenshots each directory needs. Tell me what's still missing before I could submit.
+```
+
+**7. Deploy and test.**
 
 ```text
 Deploy, then walk me through a test-mode purchase, hitting a limit and upgrading, and checking get_my_plan, in Claude and ChatGPT.
@@ -120,7 +122,7 @@ Deploy, then walk me through a test-mode purchase, hitting a limit and upgrading
 ## Testing targets
 
 - claude.ai and Claude Desktop (primary)
-- ChatGPT (developer mode)
+- ChatGPT (custom MCP server)
 - Stripe test mode
 
 ## Submission checklist
@@ -132,11 +134,12 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] No secrets are committed (`.dev.vars.example` only, and no Stripe keys)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
 - [ ] Stripe runs in test mode only, and the webhook verifies signatures
+- [ ] Billing tests pass: a non-admin upgrade is refused, a session for one company can't change another's plan, duplicate and out-of-order events are handled, concurrent calls can't pass the limit, and a cancellation stops queued work
 - [ ] An upgrade from the chat goes through a URL-mode elicitation to Stripe Checkout (or the link fallback), and a costly action asks for confirmation first
 - [ ] DISTRIBUTION.md has the directory checklist and submission materials (you don't have to actually submit)
 - [ ] Tenant isolation: plans and usage limits are per company, and one company's usage never counts against another's
 - [ ] It works in claude.ai or Claude Desktop
-- [ ] It works in ChatGPT (developer mode)
+- [ ] It works in ChatGPT (custom MCP server)
 - [ ] Tagged `step-20-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-20-done`, live server URL, and screenshots of a usage limit being reached and of get_my_plan after a test-mode upgrade in **Claude** and **ChatGPT**
 

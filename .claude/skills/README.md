@@ -16,9 +16,5 @@ To update, copy `plugins/mcp-server-dev/skills/*` from a newer commit of that re
 folders and update the commit hash above.
 
 **Known difference:** `build-mcp-server/references/deploy-cloudflare-workers.md` still uses Cloudflare's
-`McpAgent` class, which Cloudflare has since deprecated. The course steps use the stateless
+`McpAgent` class, which Cloudflare has since deprecated. The bootcamp steps use the stateless
 `createMcpHandler` instead, and their prompts say so; follow the step prompts where they differ.
-
-**Known difference:** `build-mcp-app`'s server examples import version 1 of the MCP SDK
-(`@modelcontextprotocol/sdk`). The bootcamp steps use MCP SDK v2 (`@modelcontextprotocol/server`), which is
-also what the 2.x release of `@modelcontextprotocol/ext-apps` requires. Step 9's prompt says so; follow it.

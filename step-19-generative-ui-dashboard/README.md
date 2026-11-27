@@ -1,7 +1,5 @@
 # Step 19: Generative UI: An Intent-Driven Sales Dashboard
 
-> 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and the code and instructions are coming soon.
-
 Put the bootcamp's north star to work on the sales server. A user asks in plain language, for example "show me last quarter's sales forecast", and the model chooses and fills the right widget with live Neon data, in both Claude and ChatGPT.
 
 > 🏬 **Stockroom's ask:** Stockroom's customers' managers don't want to learn a dashboard. They want to ask "how did we do last quarter?" and get the right screen. This is the feature Stockroom will sell on.
@@ -24,7 +22,7 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 
 ## Why this step matters
 
-This is the bootcamp's north star, Generative UI + MCP: an app built around intent instead of navigation. The interface comes out of the user's request, and MCP supplies the tools, data, skills and governance behind it. It is also the last step on the sales server before the step 21 capstone, where you build a new product from the same parts.
+This is the bootcamp's north star, Generative UI + MCP: an app built around intent instead of navigation. The interface comes out of the user's request, and MCP supplies the tools, data, skills and governance behind it. It is also the last feature the sales server gets: step 20 puts a price on it, and in the step 21 capstone you build a new product from the same parts.
 
 ## Why this technology in an MCP server: Generative UI
 
@@ -51,7 +49,7 @@ A complete, deployed sales-insights server where the dashboard is generated from
 - **Composable widgets**: Small, well-described components the model can choose from.
 - **Governance**: Auth, annotations and confirmations keep generative UI safe.
 
-## Planned outline
+## Outline
 
 1. The dashboard brief and architecture
 2. Building the widget library
@@ -68,8 +66,6 @@ A complete, deployed sales-insights server where the dashboard is generated from
 ## Build it with Claude Code
 
 Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
-
-> These prompts are a draft and will be refined as the step is developed.
 
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 18 code into `step-19-generative-ui-dashboard/`.**
 
@@ -110,7 +106,7 @@ Summarize where generative UI worked well and where a fixed UI would have been b
 ## Testing targets
 
 - claude.ai and Claude Desktop (primary)
-- ChatGPT (developer mode)
+- ChatGPT (custom MCP server)
 
 ## Submission checklist
 
@@ -122,7 +118,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
 - [ ] Tenant isolation: every dashboard intent and widget is scoped to the caller's company
 - [ ] It works in claude.ai or Claude Desktop
-- [ ] It works in ChatGPT (developer mode)
+- [ ] It works in ChatGPT (custom MCP server)
 - [ ] Tagged `step-19-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-19-done`, live server URL, and screenshots of two different intents producing two different dashboard widgets in **Claude** and **ChatGPT**
 

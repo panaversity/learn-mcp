@@ -1,7 +1,5 @@
 # Step 06: Production Data Tools on Neon: Hyperdrive, Writes and Row-Level Security
 
-> 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and the code and instructions are coming soon.
-
 Your server already reads a well-designed schema from Neon. Now make its data access ready for real clients: fast pooled connections through Cloudflare Hyperdrive, a Neon branch per environment, list tools that page and summarize, a write tool that validates and runs in a transaction, and row-level security so the database itself keeps each company's rows apart.
 
 > 🏬 **Stockroom's ask:** Stockroom's first paying customers are coming on. Their staff will page through thousands of orders and record new ones, and they must never see another customer's rows, even if one of your queries has a bug.
@@ -23,8 +21,7 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 - [Neon: connection pooling](https://neon.com/docs/connect/connection-pooling). How Neon pools connections, and when to use it.
 - [Neon: branching](https://neon.com/docs/introduction/branching). A database branch per environment.
 - [Neon: roles](https://neon.com/docs/manage/roles). A least-privilege role for the server, and why a role made in the Neon Console can skip row-level security.
-- [PostgreSQL: row security policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html). How Postgres row-level security works, and what it doesn't cover (`TRUNCATE`).
-- [PostgreSQL: CREATE VIEW](https://www.postgresql.org/docs/current/sql-createview.html). Why a view needs `security_invoker` to apply the caller's policies.
+- [PostgreSQL: row security policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html). How Postgres row-level security works.
 
 ## Why this step matters
 
@@ -46,7 +43,7 @@ A schema that works for one person testing is not yet safe for a client. Real us
 - Build a write tool that validates input and runs in a transaction
 - Force row-level security on every business table, with `USING` (which rows a query may see) and `WITH CHECK` (which rows it may write), failing closed when no company is set
 - Set the company with `set_config('app.tenant_id', $1, true)` inside each tool call's transaction, from the token only (book lesson 19.9)
-- Close the gaps row-level security doesn't cover: the company in every key, identical "not found" errors, no `SECURITY DEFINER` functions, Hyperdrive query caching off, and no rows in logs (book lesson 19.10)
+- Close the gaps row-level security doesn't cover: the company in every key, identical "not found" errors, no `SECURITY DEFINER` functions, no view the connector reads unless it is `security_invoker`, no `TRUNCATE` right for either role, Hyperdrive query caching off, and no rows in logs (book lesson 19.10)
 - Prove it with a data matrix that tries every table from another company, plus planted bugs it must catch
 
 ## What you will build
@@ -66,7 +63,7 @@ The step 5 sales server, production-ready: `list_orders` (filters and cursor pag
 - **Data matrix**: A test that acts as one company against every table and every route, and must find nothing of another company's.
 - **Context budgeting**: Return pages and summaries, not whole tables.
 
-## Planned outline
+## Outline
 
 1. From "it works" to production data access
 2. Hyperdrive and pooled connections
@@ -85,8 +82,6 @@ The step 5 sales server, production-ready: `list_orders` (filters and cursor pag
 ## Build it with Claude Code
 
 Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
-
-> These prompts are a draft and will be refined as the step is developed.
 
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 5 code into `step-06-neon-production/`.**
 
@@ -121,7 +116,7 @@ Add create_order with strict validation. Insert the order and its order_items in
 **6. Add row-level security.**
 
 ```text
-Add row-level security to every business table, as book lessons 19.8 and 19.9 teach: ENABLE and FORCE row level security, and a policy for the connector role with USING (org_id = current_setting('app.tenant_id', true)) and the same WITH CHECK, so a query with no company set sees nothing. Name the connector role in every policy (TO), because Postgres combines permissive policies with OR and a policy without TO applies to every role. Add one forTenant(ctx, fn) helper that opens a transaction, calls set_config('app.tenant_id', $1, true) with the company from the verified token as a parameter, runs the tool's queries and commits, and make every tool use it. Then close the gaps from lesson 19.10: make every "not found" identical whether the row is missing or belongs to another company, make sure the connector role can't reach a SECURITY DEFINER function or a view that isn't security_invoker, give it no TRUNCATE right on any business table (TRUNCATE is outside row security), and keep rows out of logs and errors. Finally add a data matrix test (lesson 19.12) that acts as one company against every table and tool, and plant three bugs (a tool with no WHERE clause, a policy without WITH CHECK, a query outside forTenant) that the matrix must catch before you remove them.
+Add row-level security to every business table, as book lessons 19.8 and 19.9 teach: ENABLE and FORCE row level security, and a policy for the connector role with USING (org_id = current_setting('app.tenant_id', true)) and the same WITH CHECK, so a query with no company set sees nothing. Add one forTenant(ctx, fn) helper that opens a transaction, calls set_config('app.tenant_id', $1, true) with the company from the verified token as a parameter, runs the tool's queries and commits, and make every tool use it. Then close the gaps from lesson 19.10: make every "not found" identical whether the row is missing or belongs to another company, make sure the connector role can't reach a SECURITY DEFINER function, a view that isn't security_invoker or a materialized view, and that neither role may TRUNCATE a table (row-level security doesn't apply to TRUNCATE), and keep rows out of logs and errors. Finally add a data matrix test (lesson 19.12) that acts as one company against every table and tool, and plant three bugs (a tool with no WHERE clause, a policy without WITH CHECK, a query outside forTenant) that the matrix must catch before you remove them.
 ```
 
 **7. Deploy and test.**
@@ -133,7 +128,7 @@ Run the migrations against the production branch, deploy, and give me prompts to
 ## Testing targets
 
 - claude.ai and Claude Desktop (primary)
-- ChatGPT (developer mode)
+- ChatGPT (custom MCP server)
 
 ## Submission checklist
 
@@ -145,7 +140,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
 - [ ] Row-level security is forced on every business table, and the data matrix passes and caught each planted bug
 - [ ] It works in claude.ai or Claude Desktop
-- [ ] It works in ChatGPT (developer mode)
+- [ ] It works in ChatGPT (custom MCP server)
 - [ ] Tagged `step-06-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-06-done`, live server URL, and screenshots of paging through orders and creating an order in **Claude** and **ChatGPT**
 

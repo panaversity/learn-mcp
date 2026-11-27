@@ -1,7 +1,5 @@
 # Step 08: Search by Meaning with pgvector: Answers That Cite or Abstain
 
-> 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and the code and instructions are coming soon.
-
 Clients' questions are often about their documents, not their tables: "can I give a 15% discount to a new customer?", "what's our returns rule for opened items?", "do we sell anything for cold storage?". Searching for the same words misses most of these, because people don't use the policy's exact words. In this step your MCP server searches by **meaning** with **pgvector**, the Postgres add-on for embeddings, inside the same Neon database, the same tables and the same row-level security as the rest of the business data. Every answer cites the document and line it came from, the search **abstains** when nothing is close enough, and a fixed question set measures retrieval so a change that makes it worse fails the build.
 
 > 🏬 **Stockroom's ask:** Customers keep asking questions their tables can't answer: discount rules, return policies, what the catalog says about cold storage. Stockroom wants answers from each customer's own documents, with the source cited, and an honest "not covered" when nothing fits.
@@ -68,9 +66,9 @@ The step 7 multi-tenant sales server, now with search by meaning:
 - **Citation**: The document and line returned with every passage, so a person can check the answer.
 - **Question set**: A fixed list of questions with the passage that should come back, or `abstain`, run on every change.
 - **Hybrid search**: Search by words and by meaning, merged. Worth adding only when the question set shows it helps, for example with product codes.
-- **Vector index (HNSW)**: An index that finds near neighbours fast on large tables, at the cost of exactness. Check with `EXPLAIN` whether it is used. pgvector uses it only when the query orders by the distance operator and has a `LIMIT`.
+- **Vector index (HNSW)**: An index that finds near neighbours fast on large tables, at the cost of exactness. Check with `EXPLAIN` whether it is used.
 
-## Planned outline
+## Outline
 
 1. Search by words versus search by meaning
 2. Passages, embeddings and pgvector on Neon
@@ -90,8 +88,6 @@ The step 7 multi-tenant sales server, now with search by meaning:
 ## Build it with Claude Code
 
 Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)). As in step 5, predict what each query and search returns before you run it.
-
-> These prompts are a draft and will be refined as the step is developed.
 
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 7 code into `step-08-semantic-search-pgvector/`.**
 
@@ -138,13 +134,13 @@ Create evals/retrieval.json with twelve questions, six per company: five that th
 **8. Indexes, cost, deploy and test.**
 
 ```text
-Show me with EXPLAIN whether a search uses a vector index at this size, add an HNSW index and explain when it starts to matter. Make sure the search orders by the distance operator with a LIMIT, because pgvector only uses the index for that shape of query. Explain why the company filter, applied after an approximate index scan, can return fewer than three passages, and whether to turn on pgvector's iterative index scans. Estimate the storage and Workers AI cost per thousand passages. Then deploy and give me prompts to try in Claude and ChatGPT as users of two companies: a policy question in the user's own words, a question the policies don't answer (it must abstain), a product search by meaning, and the same question asked by each company getting each company's own rule.
+Show me with EXPLAIN whether a search uses a vector index at this size, add an HNSW index and explain when it starts to matter. Explain why the company filter, applied after an approximate index scan, can return fewer than three passages, and whether to turn on pgvector's iterative index scans. Estimate the storage and Workers AI cost per thousand passages. Then deploy and give me prompts to try in Claude and ChatGPT as users of two companies: a policy question in the user's own words, a question the policies don't answer (it must abstain), a product search by meaning, and the same question asked by each company getting each company's own rule.
 ```
 
 ## Testing targets
 
 - claude.ai and Claude Desktop (primary)
-- ChatGPT (developer mode)
+- ChatGPT (custom MCP server)
 - The retrieval question set, in CI
 
 ## Submission checklist
@@ -158,7 +154,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] `evals/retrieval.json` runs in CI, and NOTES.md records found-in-the-top-three, abstentions and the threshold you chose
 - [ ] Tenant isolation: passages and embeddings are under forced row-level security, and a test proves one company's search never returns another company's passage
 - [ ] It works in claude.ai or Claude Desktop
-- [ ] It works in ChatGPT (developer mode)
+- [ ] It works in ChatGPT (custom MCP server)
 - [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
 - [ ] Tagged `step-08-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-08-done`, live server URL, and screenshots of a cited policy answer and an abstention in **Claude** and **ChatGPT**

@@ -1,7 +1,5 @@
 # Step 07: Multi-Tenant MCP Servers and Databases
 
-> 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and the code and instructions are coming soon.
-
 Almost every server you build for a client, and every product you sell, serves many companies from one deployment. Each company (a *tenant*) has its own people, settings and data, and no tenant may ever see another's. Steps 4 to 6 gave every user a company, put an `org_id` on every row and turned on row-level security. This step makes multi-tenancy the architecture of the whole server: you choose an isolation model for each kind of customer, carry one tenant context through every tool call, give each company its own settings and sign-in, build tenant-scoped helpers that every later step reuses for keys, Durable Objects, queue messages, Workflow runs, tasks and events, and prove isolation with a cross-tenant test suite.
 
 > 🏬 **Stockroom's ask:** Stockroom is signing many small distributors on a shared plan and one large retailer that insists on its own database and its own sign-in. One deployment must serve them all, and a single leak between them would end Stockroom's business.
@@ -75,7 +73,7 @@ The step 6 sales server, made multi-tenant by design:
 - **Noisy neighbour**: One tenant's heavy use slowing everyone, handled with per-company limits and, if needed, a dedicated tier.
 - **Cross-tenant test**: A test that acts as one company and tries to reach another's data, and passes only if it fails.
 
-## Planned outline
+## Outline
 
 1. Tenants, and the three ways to keep their data apart
 2. Choosing an isolation model per kind of customer
@@ -96,8 +94,6 @@ The step 6 sales server, made multi-tenant by design:
 
 Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
-> These prompts are a draft and will be refined as the step is developed.
-
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 6 code into `step-07-multi-tenancy/`.**
 
 ```text
@@ -110,7 +106,7 @@ Copy my step-06 code into step-07-multi-tenancy/ so I can build on it. Copy only
 Read the Neon multitenancy guide and the book lessons linked in this step. Compare shared schema with row-level security, schema per tenant, and database (or Neon project) per tenant on isolation, cost, migrations, noisy neighbours, backups and compliance. Recommend shared schema with RLS for most companies and a dedicated Neon database for an enterprise tier, and write the comparison and decision to step-07-multi-tenancy/TENANCY.md. Then list every place this server touches company data (tools, resources, prompts, KV, logs) and plan how each gets the tenant context. Don't change code yet.
 ```
 
-**3. One tenant context per request.**
+**3. One tenant context per request.** Book lesson 18.14 notes that a removed person's token keeps working until it runs out (up to 10 minutes in the book's example). This step closes that gap by checking membership and role against the database on every request.
 
 ```text
 Add a tenant module that resolves { orgId, userId, role, tier } once per request and passes it to every tool, resource and prompt handler. The company comes only from the verified token: the user picks it when they connect, and a token speaks for one company for its whole life. On every request, check that the user is still a member of that company and read their current role from the membership table, so a removed member or a demoted admin loses access on the next call. Membership decides which company's data a call may touch; the role decides what the call may do there. Add negative tests: a removed member's token, a demoted admin calling an admin tool, and a tool argument that names another company. No tool may accept an org_id or user_id as input. Add helpers tenantKey(ctx, ...parts) for KV keys, tenantObjectName(ctx) for Durable Object names, and a TenantEnvelope type ({ orgId, userId, requestId }) for later queue messages, Workflow params, tasks and events, with unit tests.
@@ -149,7 +145,7 @@ Deploy, then give me prompts to try in Claude and ChatGPT as two users in differ
 ## Testing targets
 
 - claude.ai and Claude Desktop (primary)
-- ChatGPT (developer mode)
+- ChatGPT (custom MCP server)
 - The cross-tenant suite in `tests/tenancy/`
 
 ## Submission checklist
@@ -163,7 +159,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] TENANCY.md has the isolation-model comparison, your decision and the test results
 - [ ] Tenant isolation: the cross-tenant suite passes for a shared-tier and a dedicated-tier company, and no tool accepts a company or user ID as input
 - [ ] It works in claude.ai or Claude Desktop
-- [ ] It works in ChatGPT (developer mode)
+- [ ] It works in ChatGPT (custom MCP server)
 - [ ] Tagged `step-07-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-07-done`, live server URL, and screenshots of two users in different companies each seeing only their own data, and of a cross-company request being refused, in **Claude** and **ChatGPT**
 

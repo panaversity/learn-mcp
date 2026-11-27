@@ -1,7 +1,5 @@
 # Step 17: Testing, Evals and Observability
 
-> 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and the code and instructions are coming soon.
-
 Prove the server works, keep proving it on every change, and see what it does once real users arrive. You add automated tests that run the Worker the way Cloudflare does, integration tests that call the server over MCP, an **eval set** that checks the model picks the right tool and widget for realistic requests in Claude and ChatGPT, and structured logs, traces and metrics on Cloudflare.
 
 > 🏬 **Stockroom's ask:** Stockroom ships changes every week and can't afford a reworded tool description that silently breaks a customer's workflow. It wants tests, evals and logs that catch it first.
@@ -59,7 +57,7 @@ A test suite (unit, integration and isolation tests), an `evals/` folder with 30
 - **Structured log**: A log line as data (tool, user, duration, result) that you can search and count.
 - **Trace**: The path of one request through every service it touched.
 
-## Planned outline
+## Outline
 
 1. What to test in an MCP server
 2. Unit tests in the Workers runtime
@@ -76,8 +74,6 @@ A test suite (unit, integration and isolation tests), an `evals/` folder with 30
 ## Build it with Claude Code
 
 Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
-
-> These prompts are a draft and will be refined as the step is developed.
 
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 16 code into `step-17-testing-and-observability/`.**
 
@@ -118,7 +114,7 @@ Add a CI workflow that runs the tests on every push. Deploy, trigger a few tool 
 ## Testing targets
 
 - claude.ai and Claude Desktop (primary)
-- ChatGPT (developer mode)
+- ChatGPT (custom MCP server)
 - Vitest in the Workers runtime, and CI
 
 ## Submission checklist
@@ -132,7 +128,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tests pass in CI, and evals/ has results from the automated run and from the manual pass in both clients
 - [ ] Tenant isolation: the cross-tenant suite runs in CI on every push
 - [ ] It works in claude.ai or Claude Desktop
-- [ ] It works in ChatGPT (developer mode)
+- [ ] It works in ChatGPT (custom MCP server)
 - [ ] Tagged `step-17-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-17-done`, live server URL, and screenshots of passing CI, your eval results, and a trace of a tool call from **Claude** or **ChatGPT**
 

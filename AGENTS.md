@@ -14,13 +14,13 @@ Guidance for AI coding agents (Claude Code, Codex, Cursor and others) working in
 - **Book edition:** link only to the current (second) edition at `agentfactory.panaversity.org`. **Never use or link `agentfactory1.panaversity.org`**, which is the deprecated first edition, and never link a page that redirects there (old `/docs/...` paths do). Check that every book link loads directly before adding it.
 - **Book chapters:** the bootcamp draws only on **chapters 12 to 20** of the book. `Learn first` links must come from those chapters. Where they don't cover a technology (for example Durable Objects, Queues, Workflows or the Events extension), say so in a note and link the official docs instead. Links in the root README that aren't lessons (the PCAO-F appendix, the FDE plan, the certification roadmaps) may stay.
 - **Audience:** learners who have already passed PCAO-F (Panaversity Certified Associate: Foundations) and now prepare for CCDV-F (and its Panaversity mirror, PCDV-F), and who follow the steps in a Claude project (see **How learners work** below). Write instructions for that workflow, and mention the **Code** tab of Claude Desktop, and the `claude` CLI, only as fallbacks. Every change should make the bootcamp easier to follow, not just make the code work.
-- **Status:** every step is currently **under development**. Each step folder has a planning README, and the code is still to come.
-- **How learners work (workflow standard):** local first, with a human in the loop. Learners clone their fork locally with GitHub Desktop, create a Claude project, add the local folder and their GitHub fork to it, and work in the project's threads by default. Claude edits files and runs commands locally, and is told never to commit or push. The learner reviews, commits, tags and pushes in GitHub Desktop, and opens any pull request in GitHub Desktop or on github.com, only inside their own fork. For long-running work while their computer is off, they start a cloud session on their GitHub fork and review its branch themselves. The root README's "How we work" section is the learner-facing version; keep the two in sync.
+- **Status:** every step is ready to build, which means its learning instructions are complete. It does not mean a reference implementation has been independently built and tested, so never claim that (the roadmap's **Instructions** column says "Ready to build" for this reason). Each step folder has a README (what to build, the book lessons, the prompts and the submission checklist) and **no starter or solution code**: learners write the code themselves, with Claude, in their own fork, and submit it. Don't add solution code to this repo, and don't describe the code as "coming soon".
+- **How learners work (workflow standard):** local first, with a human in the loop. Learners clone their fork locally with GitHub Desktop, create a Claude project, add the local folder and their GitHub fork to it, and work in the project's threads by default. Claude edits files and runs commands locally, and is told never to commit or push. The learner reviews, commits, tags and pushes in GitHub Desktop, and opens any pull request in GitHub Desktop or on github.com, only inside their own fork. For long-running work while their computer is off, they start a cloud session on their GitHub fork and review its branch themselves. Because a rule in a prompt is not a permission, the README also tells learners to approve commands one at a time, use bootcamp-only Cloudflare, Neon and Stripe (test mode) accounts, and keep production credentials off the machine they build on. The root README's "How we work" section is the learner-facing version; keep the two in sync.
 
 ## Target clients
 
 - **Primary testing:** claude.ai and Claude Desktop.
-- **Must also work in:** ChatGPT (developer mode).
+- **Must also work in:** ChatGPT, connected as a custom MCP server in **ChatGPT Plugins** (formerly called developer mode).
 - **Out of scope:** anything that needs a self-hosted chat front end, such as AG-UI, CopilotKit or A2UI renderers. Don't add these.
 
 To stay portable, **use only standard MCP and MCP Apps APIs** (`@modelcontextprotocol/ext-apps`). Don't use client-specific APIs (for example ChatGPT-only `window.openai` calls or Claude-only behaviour) unless a step explicitly teaches the difference, and even then keep a standard fallback.
@@ -65,8 +65,9 @@ Don't introduce another language, host, auth library or database without a maint
 ├── .gitignore                # keeps node_modules, .wrangler and .dev.vars out of forks
 ├── .claude/skills/           # vendored Anthropic mcp-server-dev skills (do not edit)
 ├── assets/                  # README hero images (rendered at 2x from assets/src/*.svg) and step diagrams, all as light and dark PNGs
+├── docs/                     # student guides: affordable-agentic-ai.md, costs-and-cleanup.md, ccdv-f-skills-map.md
 └── step-NN-<name>/           # one folder per step
-    └── README.md             # plan, Claude Code prompts, references
+    └── README.md             # what to build, Claude Code prompts, references (no solution code)
 ```
 
 ### Step folders
@@ -113,6 +114,7 @@ Multi-tenancy is a first-class theme of this bootcamp, because the servers learn
 - **Data.** Every business row carries `org_id`. Shared-tier companies use shared tables with row-level security, set per transaction (step 6); enterprise companies may get a dedicated Neon database behind the tenant router (step 7). Tools never know which tier they use, and migrations run across every tenant database.
 - **Names.** KV keys, Durable Object names, cache entries and log fields start with the company (`org:<orgId>:...`), built with the tenant helpers.
 - **Background work.** Every queue message, Workflow run, task and event carries the tenant envelope (`orgId`, `userId`, `requestId`), and the handler re-checks it before touching data.
+- **Authority at run time.** Background work can run long after the request that started it, and the user may have been removed or demoted since. So a handler acting for a user re-checks that user's current membership and role in the database right before each consequential action (a write, a send, a payment, an approval), never trusting the role captured when the work began. If the right is gone, it stops, records a clear reason and does nothing. Work that runs with no person behind it (a scheduled job) runs under its own service identity with the least scope it needs (book lesson 20.14), and the audit log says so. Steps 12 to 16 test a removal and a demotion mid-run.
 - **Skills and caching.** Per-company skills (step 10) are listed and served only to that company, and any list or read result that depends on the caller is returned with `cacheScope: "private"`, so no shared cache hands one company's answer to another.
 - **Confirmations.** An elicitation's `requestState` is sealed and bound to the company and user who started the call, and a retry from anyone else is refused.
 - **Per-company config, sign-in and billing.** Settings and limits are per company (cached in KV), SSO providers are linked to a company's organization, and plans and usage are counted per company (step 20).
@@ -169,32 +171,31 @@ If a step's `package.json` defines different scripts, follow that file. When you
 - `build-mcp-app`: MCP Apps widgets, iframe sandbox and payload budgeting.
 - `build-mcpb`: packaging local servers as bundles. This bootcamp mostly builds remote servers, so it is rarely needed.
 
-Use these skills when building steps. **Don't edit the vendored files.** Note that the vendored `build-mcp-server` Cloudflare reference (`references/deploy-cloudflare-workers.md`, last verified upstream 2026-03) still shows the deprecated `McpAgent` class. This bootcamp uses `createMcpHandler` instead, and the step prompts say so explicitly; keep them that way until upstream catches up. The vendored `build-mcp-app` skill's server examples also import MCP SDK v1 (`@modelcontextprotocol/sdk`); this bootcamp uses MCP SDK v2, which the 2.x release of `@modelcontextprotocol/ext-apps` requires, and step 9's prompt says so. To update them, follow `.claude/skills/README.md`.
+Use these skills when building steps. **Don't edit the vendored files.** Note that the vendored `build-mcp-server` Cloudflare reference (`references/deploy-cloudflare-workers.md`, last verified upstream 2026-03) still shows the deprecated `McpAgent` class. This bootcamp uses `createMcpHandler` instead, and the step prompts say so explicitly; keep them that way until upstream catches up. To update them, follow `.claude/skills/README.md`.
 
 ## Writing step READMEs
 
 Every step's `README.md` follows the same structure, so keep it:
 
 1. `# Step NN: <Title>`
-2. A status banner: `> 🚧 **Under development.** …` (remove it only when the step is finished and tested in Claude and ChatGPT)
-3. A one-paragraph summary
-4. `> 🏬 **Stockroom's ask:** …`, the business reason for the step in one or two sentences
-5. An optional client-support note (for extensions still rolling out)
-6. `## Learn first` (book lessons to study before the step, each with a one-line reason, then an **Official docs** list of deep links to the Cloudflare, Neon, Better Auth and MCP pages the step needs, each with a one-line reason)
-7. `## Why this step matters`
-8. `## Why this technology in an MCP server: <technology>` (bullets: **What it is**, **Why an MCP server uses it**, **What it solves**, **Alternatives**)
-9. `## What you will learn` (bullets)
-10. `## What you will build`
-11. `## Key concepts` (bold term, then a one-sentence definition)
-12. `## Planned outline` (numbered)
-13. `## Prerequisites` (link the previous step and the main README)
-14. `## Build it with Claude Code` (numbered instructions, each followed by a copy-paste prompt in a ```` ```text ```` block)
-15. `## Testing targets`
-16. `## Submission checklist`
-17. `## References`
-18. Footer navigation: previous step · Roadmap · next step
+2. A one-paragraph summary
+3. `> 🏬 **Stockroom's ask:** …`, the business reason for the step in one or two sentences
+4. An optional client-support note (for extensions still rolling out)
+5. `## Learn first` (book lessons to study before the step, each with a one-line reason, then an **Official docs** list of deep links to the Cloudflare, Neon, Better Auth and MCP pages the step needs, each with a one-line reason)
+6. `## Why this step matters`
+7. `## Why this technology in an MCP server: <technology>` (bullets: **What it is**, **Why an MCP server uses it**, **What it solves**, **Alternatives**)
+8. `## What you will learn` (bullets)
+9. `## What you will build`
+10. `## Key concepts` (bold term, then a one-sentence definition)
+11. `## Outline` (numbered)
+12. `## Prerequisites` (link the previous step and the main README)
+13. `## Build it with Claude Code` (numbered instructions, each followed by a copy-paste prompt in a ```` ```text ```` block)
+14. `## Testing targets`
+15. `## Submission checklist`
+16. `## References`
+17. Footer navigation: previous step · Roadmap · next step
 
-Step 00 (the readiness check) is the one exception to this structure: it has the banner, summary, Stockroom's ask, a `## How it works` section (the order of work and a study-time table), the seven checks (each with "You're ready if", a test and "If not, read"), then `## Why this step matters`, `## What you will build`, `## Prerequisites`, `## Build it with Claude Code`, `## Submission checklist`, `## References` and the footer.
+Step 00 (the readiness check) is the one exception to this structure: it has the summary, Stockroom's ask, a `## How it works` section (the order of work and a study-time table), the seven checks (each with "You're ready if", a test and "If not, read"), then `## Why this step matters`, `## What you will build`, `## Prerequisites`, `## Build it with Claude Code`, `## Submission checklist`, `## References` and the footer.
 
 Style:
 - Write plain, friendly English for learners, in full sentences. Explain jargon the first time it appears.
@@ -202,7 +203,7 @@ Style:
 - The first instruction in each step tells the learner to start a new thread for the step in their bootcamp's Claude project and to work inside the step folder. Don't give terminal-only keyboard shortcuts. Describe UI actions in the Claude app instead, generically where the projects UI may still change.
 - **Tooling standard for Git:** learners do routine Git work (clone, read a diff, commit, tag, push, sync) in GitHub Desktop, beside Claude Code in Claude Desktop. Write those instructions as GitHub Desktop actions (for example, tag with **History**, right-click the commit, **Create Tag…**, then **Push origin**), with git commands at most as a collapsed command-line fallback. Prompts never ask Claude to commit or push; they end with the learner reviewing and committing in GitHub Desktop.
 - Link to official docs (modelcontextprotocol.io, developers.cloudflare.com, better-auth.com/docs, neon.com/docs) rather than copying them. Prefer deep links to the exact page, and check each one loads.
-- When a step's status changes, update both the banner in the step README and the **Status** column of the roadmap table in the root `README.md`.
+- Steps carry no status banner. If a step is ever withdrawn or reworked, say so in the **Instructions** column of the roadmap table in the root `README.md`.
 
 ## Keeping things in sync
 
@@ -214,6 +215,7 @@ When you add, rename or reorder a step, update all of these together:
 - the step count badge in `assets/src/hero-light.svg` and `assets/src/hero-dark.svg`, then re-render both PNGs (2560×1280)
 - the milestones table and the CCDV-F skills map in `README.md`
 - the capstone requirements table in step 21
+- `docs/ccdv-f-skills-map.md` (its Steps column) and `docs/costs-and-cleanup.md` (its Steps column and the Neon branch count)
 
 ## Students and submissions
 
@@ -226,7 +228,7 @@ This repo is a student assignment. Students **fork** it, work in their fork, and
 - Students shouldn't edit bootcamp-owned files (`README.md`, `AGENTS.md`, `SUBMITTING.md`, `.claude/skills/`, step `README.md` files), because that causes conflicts when they sync their fork. Their notes go in `NOTES.md` inside the step folder.
 - Every step README ends with a `## Submission checklist`, placed before `## References`. Keep it when editing a step.
 - At the end of each milestone (steps 4, 8, 10, 15, 18 and 21) students record a **project defence** (`SUBMITTING.md` section 10): a short screen recording explaining one tool end to end and one tenant-isolation decision in their own words. It is a pass-or-fail gate in the rubric, and those steps' submission checklists have a matching item. If milestones change, update the list in `SUBMITTING.md`, the root README and the affected checklists together.
-- Grading follows the rubric in `SUBMITTING.md` (section 9). Keep it consistent with the steps' submission checklists, and keep the form link a clearly marked placeholder until the maintainer supplies it.
+- Grading follows the rubric in `SUBMITTING.md` (section 9). Keep it consistent with the steps' submission checklists, and until the maintainer supplies the form link, keep section 8's statement that graded submissions open later and that the link will be added there. Never invent a link.
 
 ## Git
 

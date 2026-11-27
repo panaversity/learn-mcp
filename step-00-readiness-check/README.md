@@ -1,7 +1,5 @@
 # Step 00: Are You Ready? Readiness Check
 
-> 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and it will be refined as the bootcamp is tested with learners.
-
 Before you build anything, check that you have the seven skills every later step assumes: Git and GitHub, the terminal, reading TypeScript, HTTP and JSON, SQL basics, keeping secrets safe, and working with Claude in a Claude project. This is a self-check, not a module. Each skill has a short test. If you pass a test, skip its reading. If you don't, it sends you to the exact sections of [The AI Agent Factory](https://agentfactory.panaversity.org/) that teach it, and to an outside reference only where the book doesn't cover the topic. Study them, then take the test again. You finish by setting up your fork and recording your results, so even this step ends with something you did, not just something you read.
 
 > 🏬 **Stockroom's ask:** Stockroom, the client you work for in this bootcamp (see [Your client: Stockroom](../README.md#your-client-stockroom)), gives every new engineer a day to set up and prove they can work in its repo before handing over the first ticket. This step is that day.
@@ -206,7 +204,7 @@ Locally from `.dev.vars` (ignored by git; commit `.dev.vars.example` with placeh
 - [14.7 JSON and REST APIs, "Where does the key go?"](https://agentfactory.panaversity.org/building-ai-workers/structuring-programs/json-and-rest-apis/#where-does-the-key-go). Keys belong in environment variables, never in code or a commit.
 - [Field guide F0, Keys on your computer](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#f0-keys-on-your-computer). Keys in files git ignores, out of the chat and out of the agent's sight.
 - [Field guide F1, "The words you will meet"](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#the-words-you-will-meet). What `.dev.vars` is.
-- [17.8 How do you put a connector online safely? "Where do the secrets live?"](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/securing-a-remote-server/#where-do-the-secrets-live). Secrets once the server is deployed.
+- [17.8 How do you put a connector online safely?, "Where do the secrets live?"](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/securing-a-remote-server/#where-do-the-secrets-live). Secrets once the server is deployed.
 - [Field guide F6, "Secrets"](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#secrets). Setting a deployed Worker's secrets with Wrangler.
 
 **Outside the book** (it covers making new keys after a leak, in F0 and chapter 18, but not cleaning a key out of a public repo's history): [GitHub: Removing sensitive data from a repository](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
@@ -220,6 +218,7 @@ Locally from `.dev.vars` (ignored by git; commit `.dev.vars.example` with placeh
 - your project has your local `learn-mcp` folder, your GitHub fork, and instructions that tell Claude never to commit or push;
 - in a new thread, Claude proposes a plan before acting, and you approve or refuse each command it asks to run;
 - you start the `build-mcp-server` skill yourself (type `/` in the prompt box and pick it, or ask Claude to use it) and ask which deployment model fits a server that Claude and ChatGPT reach over the internet. It should answer (a remote server over HTTP) without editing any files;
+- you ask Claude which permissions, folders and accounts it can use in this thread, and its answer matches your settings (an instruction is not a permission, so you check what it can really reach; see [How we work](../README.md#how-we-work-local-first-human-in-the-loop), item 6);
 - at the end, GitHub Desktop shows no commit that you didn't make yourself.
 
 If projects aren't available on your account yet, take the same test in the **Code** tab of Claude Desktop, with your `learn-mcp` folder open and the same "never commit" rule in your first message.

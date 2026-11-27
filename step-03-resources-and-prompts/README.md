@@ -1,7 +1,5 @@
 # Step 03: Resources and Prompts: The Other Two MCP Primitives
 
-> 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and the code and instructions are coming soon.
-
 Tools are only one of the three things an MCP server can offer. **Resources** are data with a fixed address (a URI) that the host app can read and attach to the conversation, and **prompts** are ready-made message templates a person picks, often from a slash menu. In this step your notes server publishes each note as a resource and offers one prompt, "summarize my notes", so you learn when a feature should be a tool, a resource or a prompt. Prompts are still part of the MCP spec, but few servers use them today, and MCP's maintainers say they have mostly fallen out of use. So this step keeps them small, and step 10 shows the modern way to ship reusable know-how: skills served over MCP. Resources matter more than ever, because widgets (`ui://`) and skills (`skill://`) are both built on them.
 
 > 🏬 **Stockroom's ask:** Reps want to attach an account's notes to a chat, and managers want one ready-made way to ask for a summary of the week's notes. That is a resource and a prompt, not another tool.
@@ -54,7 +52,7 @@ The step 2 notes server, now also listing each note as a resource (`note://{id}`
 - **Prompts today**: Still in the spec and not deprecated, but rarely used. Servers now ship reusable procedures as skills over MCP (step 10), which the model loads when it needs them.
 - **List-changed notification**: A message telling clients that the list of resources or prompts has changed.
 
-## Planned outline
+## Outline
 
 1. The three MCP primitives
 2. Notes as resources and a resource template
@@ -72,8 +70,6 @@ The step 2 notes server, now also listing each note as a resource (`note://{id}`
 
 Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
-> These prompts are a draft and will be refined as the step is developed.
-
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 2 code into `step-03-resources-and-prompts/`.**
 
 ```text
@@ -83,7 +79,7 @@ Copy my step-02 code into step-03-resources-and-prompts/ so I can build on it. C
 **2. Switch to plan mode and plan the change.**
 
 ```text
-Read the build-mcp-server skill's resources-and-prompts reference and the MCP resources and prompts docs linked in this step. Explain the three MCP primitives and who controls each. Then plan how this notes server should expose notes as resources and which prompts it should offer.
+Read the build-mcp-server skill's resources-and-prompts reference and the MCP resources and prompts docs linked in this step. Explain the three MCP primitives and who controls each. Then plan how this notes server should expose notes as resources and offer one prompt, summarize_notes.
 ```
 
 **3. Publish notes as resources.**
@@ -107,13 +103,13 @@ Review the whole server and, in NOTES.md, explain for each feature whether it is
 **6. Deploy and test.**
 
 ```text
-Deploy, then tell me how to attach a note as a resource and run each prompt in claude.ai, Claude Desktop and ChatGPT, and how to check with the MCP Inspector if a client doesn't show resources or prompts yet.
+Deploy, then tell me how to attach a note as a resource and run the prompt in claude.ai, Claude Desktop and ChatGPT, and how to check with the MCP Inspector if a client doesn't show resources or prompts yet.
 ```
 
 ## Testing targets
 
 - claude.ai and Claude Desktop (primary)
-- ChatGPT (developer mode)
+- ChatGPT (custom MCP server)
 - The MCP Inspector, for clients that don't show resources or prompts yet
 
 ## Submission checklist
@@ -125,7 +121,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] No secrets are committed (`.dev.vars.example` only)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
 - [ ] It works in claude.ai or Claude Desktop
-- [ ] It works in ChatGPT (developer mode), or your NOTES.md records how ChatGPT shows resources and prompts today
+- [ ] It works in ChatGPT (custom MCP server), or your NOTES.md records how ChatGPT shows resources and prompts today
 - [ ] Tagged `step-03-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-03-done`, live server URL, and screenshots of a note attached as a resource and a prompt being run in **Claude** and **ChatGPT** (or the MCP Inspector)
 

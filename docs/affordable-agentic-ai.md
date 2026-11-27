@@ -270,41 +270,23 @@ Report median and range of spend, time and accepted-task cost by arm; include fa
 7. Cowork web, desktop, mobile — <https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile>
 8. Claude third-party setup (original reference) — <https://claude.com/docs/third-party/claude-desktop/in-app-configuration>
 9. LiteLLM Desktop setup — <https://docs.litellm.ai/docs/proxy/client_setup/claude_desktop>
-
-10\. Merge Desktop setup — <https://docs.merge.dev/merge-gateway/coding-agents/claude-desktop>
-
-11\. Cloudflare Desktop setup — <https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/claude-desktop/>
-
-12\. OpenCode providers — <https://opencode.ai/docs/providers/>
-
-13\. OpenRouter agent integration — <https://openrouter.ai/docs/guides/coding-agents/claude-code-integration>
-
-14\. ChatGPT Go features — <https://help.openai.com/en/articles/11989085-what-is-chatgpt-go>
-
-15\. Codex allowance resets — <https://help.openai.com/en/articles/20001498-how-resets-work-in-codex>
-
-16\. Paid reset eligibility — <https://help.openai.com/en/articles/20001507-paid-weekly-work-and-codex-rate-limit-resets>
-
-17\. ChatGPT plan pricing — <https://chatgpt.com/pricing>
-
-18\. OpenCode Console allowance examples — <https://opencode.ai/console>
-
-19\. OpenCode pay-as-you-go rates — <https://opencode.ai/docs/console/models/>
-
-20\. Anthropic consumer terms — <https://www.anthropic.com/legal/consumer-terms>
-
-21\. Codex developer documentation — <https://developers.openai.com/codex/>
-
-22\. OpenCode installation — <https://opencode.ai/docs/>
-
-23\. Ollama — <https://ollama.com/>
-
-24\. OpenCode models and free model selection — <https://opencode.ai/docs/models/>
-
-25\. OpenRouter free model catalog — <https://openrouter.ai/collections/free-models>
-
-26\. OpenRouter pricing and free rate limits — <https://openrouter.ai/pricing>
-
-27\. OpenRouter Ori desktop setup — <https://learn.openrouter.ai/courses/get-started-with-ori/connect-your-agent>
+10. Merge Desktop setup — <https://docs.merge.dev/merge-gateway/coding-agents/claude-desktop>
+11. Cloudflare Desktop setup — <https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/claude-desktop/>
+12. OpenCode providers — <https://opencode.ai/docs/providers/>
+13. OpenRouter agent integration — <https://openrouter.ai/docs/guides/coding-agents/claude-code-integration>
+14. ChatGPT Go features — <https://help.openai.com/en/articles/11989085-what-is-chatgpt-go>
+15. Codex allowance resets — <https://help.openai.com/en/articles/20001498-how-resets-work-in-codex>
+16. Paid reset eligibility — <https://help.openai.com/en/articles/20001507-paid-weekly-work-and-codex-rate-limit-resets>
+17. ChatGPT plan pricing — <https://chatgpt.com/pricing>
+18. OpenCode Console allowance examples — <https://opencode.ai/console>
+19. OpenCode pay-as-you-go rates — <https://opencode.ai/docs/console/models/>
+20. Anthropic consumer terms — <https://www.anthropic.com/legal/consumer-terms>
+21. Codex developer documentation — <https://developers.openai.com/codex/>
+22. OpenCode installation — <https://opencode.ai/docs/>
+23. Ollama — <https://ollama.com/>
+24. OpenCode models and free model selection — <https://opencode.ai/docs/models/>
+25. OpenRouter free model catalog — <https://openrouter.ai/collections/free-models>
+26. OpenRouter pricing and free rate limits — <https://openrouter.ai/pricing>
+27. OpenRouter Ori desktop setup — <https://learn.openrouter.ai/courses/get-started-with-ori/connect-your-agent>
 
 Verification: Version 3 rechecked selected documentation for Codex access and Go resets, OpenCode free models and Go limits, OpenRouter free pricing and Ori desktop routing on 26 November 2026. Other rates, feature claims and setup links are carried forward from Version 2; verify live provider documentation and personal checkout before purchasing. No installation, model compatibility, workload or outcome tests were performed.

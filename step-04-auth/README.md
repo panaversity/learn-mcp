@@ -1,7 +1,5 @@
 # Step 04: Adding Authorization with Better Auth and D1
 
-> 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and the code and instructions are coming soon.
-
 Protect the server so that only signed-in users can use it, and so that every tool call knows *who* is calling. We use OAuth with Better Auth, and store users and sessions in Cloudflare D1. We chose Better Auth partly because it supports single sign-on (SSO) through its open-source `@better-auth/sso` plugin, so a client's staff can later sign in with the company account they already have. Every user also belongs to a company (a *tenant*) with a role, because the servers you build for clients serve whole teams, and from here on every step keeps each company's data apart.
 
 > 🏬 **Stockroom's ask:** Stockroom sells to companies, not individuals. Each customer company's staff must sign in and see only their own notes, admins need more rights than members, and Stockroom's bigger prospects already ask whether their staff can sign in with their company accounts (SSO).
@@ -23,7 +21,6 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 - [MCP: Authorization](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization). The OAuth rules every remote MCP server follows.
 - [MCP: Authorization server discovery](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/authorization-server-discovery). The metadata clients look for after a 401.
 - [MCP: Client registration](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/client-registration). How Claude and ChatGPT register with your auth server. Client ID Metadata Documents are now the preferred way; Dynamic Client Registration is deprecated in this spec version but still allowed for older clients.
-- [MCP: Authorization security considerations](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations). What the auth server must show on the consent screen, and the risks of fetching client metadata.
 - [MCP: Authorization extensions](https://modelcontextprotocol.io/extensions/auth/overview). What the official extensions add on top of the core spec: client credentials for machines, and Enterprise-Managed Authorization for companies.
 - [MCP: Enterprise-Managed Authorization](https://modelcontextprotocol.io/extensions/auth/enterprise-managed-authorization). How a company's identity provider (such as Okta) authorizes your server once for all its staff.
 - [Better Auth: MCP plugin](https://better-auth.com/docs/plugins/mcp). Better Auth's support for MCP servers.
@@ -72,7 +69,7 @@ The notes server from steps 2 and 3, now behind sign-in. Every user belongs to a
 - **Enterprise-Managed Authorization**: An official, stable MCP extension, built with Okta and others, for a world where agents run without someone clicking a consent button. The company's identity provider gives the AI app a pass (an ID-JAG) that your auth server trades for an ordinary token, so an admin decides once which employees may use the server.
 - **Client registration**: How an AI app identifies itself to your auth server. The 2026-07-28 spec prefers Client ID Metadata Documents (the client's ID is a URL to its own description) over Dynamic Client Registration.
 
-## Planned outline
+## Outline
 
 1. How Claude and ChatGPT authenticate to remote MCP servers
 2. Creating the D1 database and binding it to the Worker
@@ -91,8 +88,6 @@ The notes server from steps 2 and 3, now behind sign-in. Every user belongs to a
 ## Build it with Claude Code
 
 Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
-
-> These prompts are a draft and will be refined as the step is developed.
 
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 3 code into `step-04-auth/`.**
 
@@ -139,7 +134,7 @@ Set the needed secrets with Wrangler, deploy, and give me a checklist for connec
 **8. Run a security review.**
 
 ```text
-Review the auth setup for security issues: token validation, redirect URIs, secret handling and CORS. Then check three things in the MCP spec's authorization security considerations: the consent screen shows the host of the redirect address, the auth server can't be made to fetch a client metadata document from an internal address, and the auth server returns `iss` with the authorization code and says so in its metadata. List anything to fix and fix it.
+Review the auth setup for security issues: token validation, redirect URIs, secret handling and CORS. List anything to fix and fix it.
 ```
 
 **9. Optional: add single sign-on for a client company.** You'll need a test identity provider, such as a free Okta developer account or Microsoft Entra ID.
@@ -151,7 +146,7 @@ Read Better Auth's SSO plugin docs and the "sign in with your company (SSO)" sec
 ## Testing targets
 
 - claude.ai and Claude Desktop (primary)
-- ChatGPT (developer mode)
+- ChatGPT (custom MCP server)
 
 ## Submission checklist
 
@@ -162,7 +157,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] No secrets are committed (`.dev.vars.example` only)
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
 - [ ] It works in claude.ai or Claude Desktop
-- [ ] It works in ChatGPT (developer mode)
+- [ ] It works in ChatGPT (custom MCP server)
 - [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
 - [ ] Tagged `step-04-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-04-done`, live server URL, and screenshots of signing in and using your own notes in **Claude** and **ChatGPT**

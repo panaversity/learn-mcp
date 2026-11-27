@@ -23,15 +23,31 @@ MCP's second year was about agents. The [2026-07-28 spec](https://modelcontextpr
 
 Our north star is **Generative UI + MCP**: AI-native apps built around intent rather than navigation. The model decides what interface to show at runtime, and MCP supplies the tools, data and context behind it. MCP Apps is the open standard that carries that UI into the chat, in both Claude and ChatGPT. ([Generative UI + MCP: The New Stack for AI-Native Applications](https://odsc.medium.com/generative-ui-mcp-the-new-stack-for-ai-native-applications-b62af183f2aa), ODSC, 2026)
 
-This bootcamp is the hands-on companion to the book [The AI Agent Factory, Second Edition](https://agentfactory.panaversity.org/). **You learn by building.** The book teaches the concepts, and this bootcamp is where you practise them: every step ends with something you build, deploy and test yourself in Claude and ChatGPT. Each step's README starts with a **Learn first** section that links the book lessons to study before you build that step. Those lessons all come from **chapters 12 to 20** of the book. Steps 5 to 8 follow chapter 19 (Postgres, row-level security and pgvector on Neon) closely. Where those chapters don't cover a technology yet (Durable Objects, Queues, Workflows and the Events extension), the step says so and links the official docs instead.
+This bootcamp is the hands-on companion to the book [The AI Agent Factory, Second Edition](https://agentfactory.panaversity.org/). **You learn by building.** The book teaches the concepts, and this bootcamp is where you practise them: every step ends with something you build, deploy and test yourself in Claude and ChatGPT. Each step's README starts with a **Learn first** section that links the book lessons to study before you build that step. Those lessons all come from **chapters 12 to 20** of the book. Steps 5 to 8 follow chapter 19 (Postgres, row-level security and pgvector on Neon) closely. Where those chapters don't cover a technology yet (Durable Objects, Queues, Workflows and the Events extension), the step says so and links the official docs instead. The book's [Practise in a bootcamp](https://agentfactory.panaversity.org/how-to-use-this-book/#practise-in-a-bootcamp) section explains why a bootcamp is worth your time and where this one fits beside the book.
 
 ## Why this bootcamp
 
 - **A hands-on way of learning.** You don't learn MCP here by reading or watching. You read the concepts in the book, then build them into a real, deployed MCP server, one small step at a time. By the end, everything you know, you have built yourself.
-- **Hands-on preparation for CCDV-F.** This bootcamp is hands-on preparation for **CCDV-F** (Claude Certified Developer: Foundations), and for **PCDV-F** (Panaversity Certified Developer: Foundations), which mirrors it. You don't just read about MCP servers: you build, deploy and test one in Claude, step by step. See [Certification and Portfolio Roadmaps](https://agentfactory.panaversity.org/certification-and-portfolio-roadmaps).
+- **Hands-on preparation for CCDV-F.** This bootcamp is hands-on preparation for **CCDV-F** (Claude Certified Developer: Foundations), and for **PCDV-F** (Panaversity Certified Developer: Foundations), which mirrors it. You don't just read about MCP servers: you build, deploy and test one in Claude, step by step. It practises the exam's MCP, security and evaluation objectives in depth, but not the whole exam: the [CCDV-F skills map](docs/ccdv-f-skills-map.md) shows what it covers and what to study in the book besides. See [Certification and Portfolio Roadmaps](https://agentfactory.panaversity.org/certification-and-portfolio-roadmaps).
 - **Skills you can monetize in the international market.** Building MCP servers and MCP Apps is work clients around the world pay for today. Every step builds toward a client-ready product, and the capstone is a portfolio piece you can show to clients and employers, whether you work as an FDE or build your own startup.
 - **Part of the FDE 2027 Master Plan.** It is one piece of [The FDE 2027 Master Plan](https://agentfactory.panaversity.org/fde-2027-master-plan) covered in the book, which trains Forward Deployed Engineers (FDEs) and the next generation of AI startup founders.
 - **MCP Apps, one of the book's two products.** The book teaches you to build two kinds of products: **MCP Apps** and **AI Workers that improve themselves**. This bootcamp covers **MCP Apps**. Self-improving AI Workers get their own bootcamp, **Build and Sell Self Improving AI Workers: The CCDV-F Bootcamp Part II**, which is under development.
+
+### Coming from the first bootcamp
+
+If you took [Put AI Workers to Work: The CCAO-F Bootcamp](https://github.com/panaversity/learn-ai-at-work), you already met each problem this bootcamp solves, as the person managing AI work. Here you build the engineering behind it:
+
+| In the first bootcamp you learned to | Here you build | Steps |
+| --- | --- | --- |
+| Give AI approved company knowledge | Resources and search by meaning that cites or abstains | 3, 8 |
+| Define what AI may do (the authority envelope) | Sign-in, roles and per-tool permissions | 4, 16 |
+| Teach company procedures | Skills served to each company | 10 |
+| Keep each company's information apart | Tenant isolation, with row-level security | 4 to 7 |
+| Check AI's work | Automated tests and evals | 8, 17 |
+| Ask a person before anything risky happens | Elicitation confirmations | 14, 16, 20 |
+| Delegate long-running jobs | Queues, Workflows and Tasks | 12, 13, 14 |
+| Diagnose a failed run | Logs, traces and audit records | 16, 17 |
+| Manage an AI Worker | The tools and data it works through | every step |
 
 ## Your client: Stockroom
 
@@ -72,13 +88,13 @@ Each step's README opens with **🏬 Stockroom's ask**: what the client needs fr
 - A [Cloudflare](https://dash.cloudflare.com/sign-up) account
 - A [Neon](https://neon.com/) account
 - The same Claude account, to connect and test your servers in Claude Desktop and claude.ai
-- A ChatGPT account with developer mode on, to check your servers work there too
+- A ChatGPT account that can [add a custom MCP server](https://developers.openai.com/api/docs/guides/custom-mcp-server) (in **ChatGPT Plugins** on the web; it used to be called developer mode), to check your servers work there too
 
 #### What it costs
 
 - **Claude:** Claude Code in Claude Desktop needs a paid Claude plan (Pro or higher).
-- **ChatGPT:** developer mode needs a paid ChatGPT plan that includes it.
-- **Cloudflare and Neon:** most steps fit the free plans. Each step links the product's pricing or limits page; check it before you upgrade, and set a spending alert if you do.
+- **ChatGPT:** adding a custom MCP server depends on your ChatGPT plan and, on a work account, your workspace's policies. Check [OpenAI's page](https://developers.openai.com/api/docs/guides/custom-mcp-server) before you start.
+- **Cloudflare and Neon:** every step fits the free plans. Neon's Free plan allows 10 branches per project and the bootcamp uses one per step from step 5, so delete a step's branch once it is graded. The **[Costs and cleanup](docs/costs-and-cleanup.md)** guide lists every service, what could cost money and what you may delete after grading.
 - **Workers AI:** step 8's embeddings fit the daily free allowance for small documents.
 - **Anthropic API:** from step 17, the automated eval script calls the Claude API, which costs a little per run.
 - **Stripe:** test mode (step 20) is free.
@@ -95,6 +111,7 @@ This bootcamp follows the way Panaversity's own team works: Claude does most of 
 3. **Work in threads.** Start a thread in the project for each step and paste the step's prompts into it. Claude edits the files in your local folder and runs commands on your computer after you approve them.
 4. **You commit, not Claude.** Read the changes, then commit, tag and push them yourself in GitHub Desktop. If you use a branch in your own fork, open its pull request in GitHub Desktop or on github.com, inside your fork only, never to the bootcamp repo. Nothing reaches GitHub until a person has read it: that is the human in the loop.
 5. **Long jobs while your computer is off.** Work in your local folder stops when your computer sleeps or the lid is closed. For a long-running task, start a cloud session on your GitHub fork instead. It runs on Anthropic's computers, and its work comes back to your fork as a branch that you review, pull and merge yourself. Plugins you installed in the app don't load in a cloud session, but the skills still work there, because the session runs on a copy of your fork, and the fork carries them in [`.claude/skills/`](.claude/skills/). Start it as a cloud session on the fork itself, not as a thread of your project, because project threads don't load a repo's skills.
+6. **Make "Claude never commits" a boundary, not just a request.** A rule in a prompt is not a permission. Claude can only do what your computer lets it do, so limit what it can reach. Approve commands one at a time and refuse any `git push`, and any `wrangler deploy` or `wrangler secret put` that the step's prompt didn't ask for. Use Cloudflare, Neon and Stripe accounts made for the bootcamp, with Stripe in test mode, and never sign in to a client's or an employer's production account on the computer you build on. Keep keys in `.dev.vars`, never in a prompt or chat. At the start of each step, ask Claude which permissions and accounts it can use, and check its answer against your settings. It's the same least-privilege rule you build into your servers in step 16.
 
 > **Good to know.** Claude projects are in beta for Pro and Max subscribers and are still rolling out; if you don't have them yet, join the waitlist linked from Anthropic's [Projects redesigned](https://claude.com/resources/articles/projects-redesigned) article. Anthropic's article doesn't give menu names, so the wording here describes the steps in general terms. Threads work directly on the local folder you add to the project, on your computer. (Anthropic's article was written when threads ran only in the cloud; local folders came after it.) Threads don't load the repo's bundled skills on their own (book lesson [12.8](https://agentfactory.panaversity.org/building-ai-workers/agentic-coding/both-ai-vendors/#the-details-tool-by-tool)), so add them to your Claude account once, under **Customize → Plugins** or **Customize → Skills** (see [Built-in skills](#built-in-skills)). If you don't have projects yet, open your local `learn-mcp` folder in the **Code** tab of Claude Desktop instead. Everything else stays the same, including committing in GitHub Desktop.
 
@@ -140,34 +157,36 @@ Then type `/` in a thread's prompt box: you should see `build-mcp-server`, `buil
 
 ## Roadmap
 
-Each step lives in its own numbered directory and builds on the one before it. Every step is currently **under development**: each folder has a README with the planned content, and the code is coming soon.
+Each step lives in its own numbered directory and builds on the one before it. Each folder holds a README that tells you what to build and gives you the prompts to build it with Claude. There is no starter or solution code to download: **you write the code yourself**, with Claude, in your own fork, and that code is what you submit.
+
+**What "Ready to build" means.** The **Instructions** column says a step's learning instructions are complete: what to build, the book lessons, the prompts and the submission checklist. It does not say that a reference implementation of the step has been independently built and tested. The bootcamp team is building the steps alongside the first cohort, and tools and vendor APIs change, so if a prompt or a link doesn't work as written, tell your instructor and sync your fork to pick up fixes.
 
 Start with **Step 00: Are You Ready? Readiness Check**, a short self-check of the skills every step assumes (Git and GitHub, the terminal, reading TypeScript, HTTP and JSON, SQL basics, secrets and working with Claude in a Claude project). If you pass its seven checks, you go straight to step 1.
 
-| Step | Directory | Topic | Status |
+| Step | Directory | Topic | Instructions |
 | --- | --- | --- | --- |
-| 0 | [`step-00-readiness-check/`](step-00-readiness-check/) | Are you ready? Readiness check: seven short tests, with book sections for any you don't pass. Not graded | 🚧 Under development |
-| 1 | [`step-01-hello-world/`](step-01-hello-world/) | Hello world: a minimal remote MCP server on Cloudflare | 🚧 Under development |
-| 2 | [`step-02-tool-design/`](step-02-tool-design/) | Designing good tools | 🚧 Under development |
-| 3 | [`step-03-resources-and-prompts/`](step-03-resources-and-prompts/) | Resources and prompts: the other two MCP primitives, and when to use each instead of a tool | 🚧 Under development |
-| 4 | [`step-04-auth/`](step-04-auth/) | Adding authorization with Better Auth and D1: sign-in, companies (tenants) and roles | 🚧 Under development |
-| 5 | [`step-05-relational-databases/`](step-05-relational-databases/) | Relational databases with Neon: the server connects to Neon, and you design its sales schema through the first three normal forms, with read-only tools over it | 🚧 Under development |
-| 6 | [`step-06-neon-production/`](step-06-neon-production/) | Production data tools on Neon: Hyperdrive, paginated and transactional tools, and row-level security | 🚧 Under development |
-| 7 | [`step-07-multi-tenancy/`](step-07-multi-tenancy/) | Multi-tenant MCP servers and databases: isolation models, tenant context in every call, shared and dedicated databases, and cross-tenant tests | 🚧 Under development |
-| 8 | [`step-08-semantic-search-pgvector/`](step-08-semantic-search-pgvector/) | Search by meaning with pgvector: tenant-scoped retrieval on Neon, answers that cite or abstain, and a question set in CI | 🚧 Under development |
-| 9 | [`step-09-generative-ui-mcp-apps/`](step-09-generative-ui-mcp-apps/) | Generative UI with MCP Apps: fixed React widgets that tools return, with the model selecting which one to show | 🚧 Under development |
-| 10 | [`step-10-skills-over-mcp/`](step-10-skills-over-mcp/) | Skills over MCP: a shared playbook plus skills built for each company, served from your signed-in server | 🚧 Under development |
-| 11 | [`step-11-durable-objects/`](step-11-durable-objects/) | Per-user state with Durable Objects: draft orders and rate limits that stay consistent | 🚧 Under development |
-| 12 | [`step-12-queues/`](step-12-queues/) | Background work with Queues: bulk imports processed in batches, with retries | 🚧 Under development |
-| 13 | [`step-13-cloudflare-workflows/`](step-13-cloudflare-workflows/) | Durable jobs with Cloudflare Workflows: multi-step, retryable work that a tool starts and the model checks on | 🚧 Under development |
-| 14 | [`step-14-tasks/`](step-14-tasks/) | Long-running work with Tasks | 🚧 Under development |
-| 15 | [`step-15-events/`](step-15-events/) | Events | 🚧 Under development |
-| 16 | [`step-16-security-hardening/`](step-16-security-hardening/) | Security hardening: threat model, token audience, least-privilege tools, elicitation confirmations, prompt injection, secrets and audit | 🚧 Under development |
-| 17 | [`step-17-testing-and-observability/`](step-17-testing-and-observability/) | Testing, evals and observability: tests in the Workers runtime, a tool-selection eval set, logs and traces | 🚧 Under development |
-| 18 | [`step-18-deploy-and-test/`](step-18-deploy-and-test/) | Deploying and testing on claude.ai, Claude Desktop and ChatGPT | 🚧 Under development |
-| 19 | [`step-19-generative-ui-dashboard/`](step-19-generative-ui-dashboard/) | Generative UI: an intent-driven dashboard, where the model composes a screen from approved widgets and fills it with Neon data | 🚧 Under development |
-| 20 | [`step-20-billing-and-distribution/`](step-20-billing-and-distribution/) | Billing and distribution: Stripe plans, usage limits on every call, and listing in Claude's and ChatGPT's directories | 🚧 Under development |
-| 21 | [`step-21-capstone-mcp-app/`](step-21-capstone-mcp-app/) | Capstone: a complete, client-ready MCP app (Stockroom, or your own client) built from the bootcamp's core plus the extras the client needs | 🚧 Under development |
+| 0 | [`step-00-readiness-check/`](step-00-readiness-check/) | Are you ready? Readiness check: seven short tests, with book sections for any you don't pass. Not graded | ✅ Ready to build |
+| 1 | [`step-01-hello-world/`](step-01-hello-world/) | Hello world: a minimal remote MCP server on Cloudflare | ✅ Ready to build |
+| 2 | [`step-02-tool-design/`](step-02-tool-design/) | Designing good tools | ✅ Ready to build |
+| 3 | [`step-03-resources-and-prompts/`](step-03-resources-and-prompts/) | Resources and prompts: the other two MCP primitives, and when to use each instead of a tool | ✅ Ready to build |
+| 4 | [`step-04-auth/`](step-04-auth/) | Adding authorization with Better Auth and D1: sign-in, companies (tenants) and roles | ✅ Ready to build |
+| 5 | [`step-05-relational-databases/`](step-05-relational-databases/) | Relational databases with Neon: the server connects to Neon, and you design its sales schema through the first three normal forms, with read-only tools over it | ✅ Ready to build |
+| 6 | [`step-06-neon-production/`](step-06-neon-production/) | Production data tools on Neon: Hyperdrive, paginated and transactional tools, and row-level security | ✅ Ready to build |
+| 7 | [`step-07-multi-tenancy/`](step-07-multi-tenancy/) | Multi-tenant MCP servers and databases: isolation models, tenant context in every call, shared and dedicated databases, and cross-tenant tests | ✅ Ready to build |
+| 8 | [`step-08-semantic-search-pgvector/`](step-08-semantic-search-pgvector/) | Search by meaning with pgvector: tenant-scoped retrieval on Neon, answers that cite or abstain, and a question set in CI | ✅ Ready to build |
+| 9 | [`step-09-generative-ui-mcp-apps/`](step-09-generative-ui-mcp-apps/) | Generative UI with MCP Apps: fixed React widgets that tools return, with the model selecting which one to show | ✅ Ready to build |
+| 10 | [`step-10-skills-over-mcp/`](step-10-skills-over-mcp/) | Skills over MCP: a shared playbook plus skills built for each company, served from your signed-in server | ✅ Ready to build |
+| 11 | [`step-11-durable-objects/`](step-11-durable-objects/) | Per-user state with Durable Objects: draft orders and rate limits that stay consistent | ✅ Ready to build |
+| 12 | [`step-12-queues/`](step-12-queues/) | Background work with Queues: bulk imports processed in batches, with retries | ✅ Ready to build |
+| 13 | [`step-13-cloudflare-workflows/`](step-13-cloudflare-workflows/) | Durable jobs with Cloudflare Workflows: multi-step, retryable work that a tool starts and the model checks on | ✅ Ready to build |
+| 14 | [`step-14-tasks/`](step-14-tasks/) | Long-running work with Tasks | ✅ Ready to build |
+| 15 | [`step-15-events/`](step-15-events/) | Events | ✅ Ready to build |
+| 16 | [`step-16-security-hardening/`](step-16-security-hardening/) | Security hardening: threat model, token audience, least-privilege tools, elicitation confirmations, prompt injection, secrets and audit | ✅ Ready to build |
+| 17 | [`step-17-testing-and-observability/`](step-17-testing-and-observability/) | Testing, evals and observability: tests in the Workers runtime, a tool-selection eval set, logs and traces | ✅ Ready to build |
+| 18 | [`step-18-deploy-and-test/`](step-18-deploy-and-test/) | Deploying and testing on claude.ai, Claude Desktop and ChatGPT | ✅ Ready to build |
+| 19 | [`step-19-generative-ui-dashboard/`](step-19-generative-ui-dashboard/) | Generative UI: an intent-driven dashboard, where the model composes a screen from approved widgets and fills it with Neon data | ✅ Ready to build |
+| 20 | [`step-20-billing-and-distribution/`](step-20-billing-and-distribution/) | Billing and distribution: Stripe plans, usage limits on every call, and listing in Claude's and ChatGPT's directories | ✅ Ready to build |
+| 21 | [`step-21-capstone-mcp-app/`](step-21-capstone-mcp-app/) | Capstone: a complete, client-ready MCP app (Stockroom, or your own client) built from the bootcamp's core plus the extras the client needs | ✅ Ready to build |
 
 ### Milestones and pacing
 
@@ -188,13 +207,13 @@ The whole bootcamp is about 125 to 164 hours. You don't have to finish it to get
 | --- | --- | --- | --- |
 | Foundation | 1 to 4 | 18 to 22 hours | A signed-in remote MCP server with companies and roles, working in Claude and ChatGPT |
 | Professional | 1 to 10 | 56 to 70 hours | A multi-tenant server with forced row-level security, cited search and MCP Apps widgets |
-| Advanced | 1 to 21 | 125 to 164 hours | A production, billed, client-ready MCP app |
+| Advanced | 1 to 21 | 125 to 164 hours | A tested, deployed MCP app with a commercial proposal |
 
 **Multi-tenancy runs through the whole bootcamp.** Every user belongs to a company from step 4, every business row carries it in its keys from step 5, the database enforces it with forced row-level security from step 6, step 7 makes it the server's architecture, step 8 keeps search by meaning inside it, and from step 8 on every step's checklist includes a tenant-isolation check.
 
 ### What this bootcamp practises for CCDV-F
 
-The bootcamp is hands-on preparation, not a copy of the exam. Use the official CCDV-F exam guide as the source for the exam's own domains and weights, and use this map to find where you practised each skill. **Direct** rows are developer skills an exam about building with Claude is likely to cover. **Supporting** rows build the skills behind them. **FDE** rows are for client work, not the exam. Finishing the bootcamp does not by itself mean you are ready for the exam: check yourself against the official guide.
+The bootcamp is hands-on preparation, not a copy of the exam. For each of the exam guide's 24 objectives, the **[CCDV-F skills map](docs/ccdv-f-skills-map.md)** shows whether this bootcamp practises it, in which steps, what evidence in your fork shows it, and what is left for you to study in the book. The table below is the short version. **Direct** rows practise objectives in the exam guide's Tools and MCP, Security and Safety, and evaluation domains. **Supporting** rows build the skills behind them. **FDE** rows are for client work, not the exam. Finishing the bootcamp does not by itself mean you are ready for the exam: check yourself against the official guide.
 
 | Skill | Kind | Steps |
 | --- | --- | --- |

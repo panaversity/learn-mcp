@@ -1,7 +1,5 @@
 # Step 09: Generative UI with MCP Apps
 
-> 🚧 **Under development.** This step is being written. The plan below shows what it will cover, and the code and instructions are coming soon.
-
 Give the server a face. Tools return interactive React widgets (tables, charts, forms) that render inside the chat in Claude and ChatGPT, and the model picks which widget to show based on what the user asked.
 
 > 🏬 **Stockroom's ask:** Customers' staff find long text tables hard to read in a chat. Stockroom wants real screens (an orders table, a sales chart, an order form) that appear in Claude and ChatGPT when someone asks.
@@ -38,7 +36,7 @@ Text is a poor interface for data. MCP Apps is the open standard for interactive
 - Explain the MCP Apps model: UI resources, linking a tool to its UI, and the sandboxed iframe
 - Build React widgets and bundle them as `ui://` resources
 - Pass tool results into a widget, and let the widget call tools back
-- Place this step on book lesson 20.10's ladder: here the model picks one fixed screen per request and fills it with data; step 19 lets it compose from approved parts
+- Place this step among the three ways to make a screen in book lesson 20.10 (fixed, from approved parts, open): here the model picks one fixed screen per request and fills it with data; step 19 lets it compose from approved parts
 - Keep widgets portable across Claude and ChatGPT
 - Respect payload size, theming and accessibility inside the chat
 
@@ -53,7 +51,7 @@ Sales widgets for the step 8 server, each showing only the signed-in company's d
 - **Widget to host messaging**: Widgets can call tools and send messages back through the host.
 - **Fixed, approved-parts and open screens (book lesson 20.10)**: This step builds fixed screens that the model selects. Composing a screen from approved parts comes in step 19. Open screens, where the model writes its own HTML, are out of scope because they are hard to keep safe.
 
-## Planned outline
+## Outline
 
 1. How MCP Apps works
 2. Setting up React and a bundler for widgets
@@ -73,8 +71,6 @@ Sales widgets for the step 8 server, each showing only the signed-in company's d
 
 Every step is built with **Claude in a thread of your bootcamp's Claude project**, working on your local clone (see [How we work](../README.md#how-we-work-local-first-human-in-the-loop)). Follow the instructions in order and paste each prompt into the thread. Read what Claude proposes before you approve it, because understanding the code is the point. Claude never commits or pushes: you review the changes, then commit and push them in GitHub Desktop. The prompts use Anthropic's `build-mcp-server` and `build-mcp-app` skills (see [Built-in skills](../README.md#built-in-skills)).
 
-> These prompts are a draft and will be refined as the step is developed.
-
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 8 code into `step-09-generative-ui-mcp-apps/`.**
 
 ```text
@@ -84,7 +80,7 @@ Copy my step-08 code into step-09-generative-ui-mcp-apps/ so I can build on it. 
 **2. Switch to plan mode and plan the widgets.**
 
 ```text
-Use the build-mcp-app skill. Plan how to add MCP Apps widgets to this server using React and the standard @modelcontextprotocol/ext-apps APIs only, with nothing Claude-specific or ChatGPT-specific, so it works in both. Use the current 2.x release of @modelcontextprotocol/ext-apps with the MCP SDK v2 this server already uses; the skill's server examples import the older v1 SDK package, so adapt them. Propose the build setup for bundling widgets.
+Use the build-mcp-app skill. Plan how to add MCP Apps widgets to this server using React and the standard @modelcontextprotocol/ext-apps APIs only, with nothing Claude-specific or ChatGPT-specific, so it works in both. Propose the build setup for bundling widgets.
 ```
 
 **3. Set up the widget build.**
@@ -96,7 +92,7 @@ Set up a React widget build that outputs self-contained bundles the server can s
 **4. Build the first widget.**
 
 ```text
-Build an OrdersTable widget and link it to list_orders, so the table renders in the chat with the tool's result. Keep the tool's existing sign-in, role and company checks exactly as they are when you link the widget. Follow the skill's guidance on payload size and theming.
+Build an OrdersTable widget and link it to list_orders, so the table renders in the chat with the tool's result. Follow the skill's guidance on payload size and theming.
 ```
 
 **5. Add more widgets.**
@@ -120,7 +116,7 @@ Deploy, then give me a test checklist for Claude (web and Desktop) and ChatGPT c
 ## Testing targets
 
 - claude.ai and Claude Desktop (primary)
-- ChatGPT (developer mode)
+- ChatGPT (custom MCP server)
 
 ## Submission checklist
 
@@ -132,7 +128,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] The server is deployed to your own Cloudflare account and the `/mcp` URL works
 - [ ] Tenant isolation: widgets show only the signed-in company's data, and every tool a widget calls re-checks the caller's company
 - [ ] It works in claude.ai or Claude Desktop
-- [ ] It works in ChatGPT (developer mode)
+- [ ] It works in ChatGPT (custom MCP server)
 - [ ] Tagged `step-09-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
 - [ ] Submitted in the form: fork URL, tag `step-09-done`, live server URL, and screenshots of a React widget (table, chart or form) rendering in the chat in **Claude** and **ChatGPT**
 

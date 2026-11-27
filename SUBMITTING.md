@@ -1,6 +1,6 @@
 # Submitting Your Work
 
-This bootcamp is also an assignment. You do all your work in **your own fork** of this repository, and you submit each finished step through the submission form.
+This bootcamp is also an assignment. You do all your work in **your own fork** of this repository, and you submit each finished step through the submission form (it [opens later](#8-submit-the-step); build and tag your steps in the meantime).
 
 > ⛔ **Do not open pull requests to this repository.** Pull requests to `panaversity/learn-mcp` are not how you submit, and they will be closed without review. Your work stays in your fork.
 
@@ -69,8 +69,8 @@ To avoid merge conflicts when you sync:
 Every student deploys to **their own** accounts:
 
 - **Cloudflare:** your own Workers deployment (`*.workers.dev` or your own domain). Each step is its own Worker named `learn-mcp-step-NN`, so deploying step 2 doesn't replace step 1
-- **Neon:** your own project, from step 5, with one branch per step (`step-05`, `step-06` …). Each step's first prompt creates its branch, so a later step's migrations never break an earlier step that is still being graded
-- **Claude and ChatGPT:** connect your deployed server as a custom connector in claude.ai or Claude Desktop, and in ChatGPT developer mode
+- **Neon:** your own project, from step 5, with one branch per step (`step-05`, `step-06` …). Each step's first prompt creates its branch, so a later step's migrations never break an earlier step that is still being graded. Once a step's grade is in you may delete its branch, which you'll need to do on Neon's Free plan (see [Costs and cleanup](docs/costs-and-cleanup.md))
+- **Claude and ChatGPT:** connect your deployed server as a custom connector in claude.ai or Claude Desktop, and in ChatGPT as a custom MCP server
 
 Keep your server running until your step has been graded.
 
@@ -98,9 +98,9 @@ Tags are final: never move or delete a tag you have submitted, because the grade
 
 Submit each step through the form:
 
-**📝 Submission form: `TODO: FORM LINK (the bootcamp team will add it here)`**
+**📝 Submission form: graded submissions are not open yet. They will open later, and the link to the form will be added here.**
 
-> Until the link is added, keep each finished step tagged and pushed. You can submit every finished step once the form opens.
+> You don't have to wait for the form to start building. Keep each finished step tagged and pushed, keep its server running, and submit every finished step once the form opens. When a step's checklist says "Submitted in the form", that is the one item to leave until then.
 
 For each step, the form asks for:
 
@@ -122,7 +122,7 @@ Each step is graded out of 10. A step passes at 7, and the grader reviews the co
 | Criterion | Points | What the grader checks |
 | --- | --- | --- |
 | Works in Claude | 2 | The step's tools (and widgets, from step 9) work in claude.ai or Claude Desktop, as your screenshot shows |
-| Works in ChatGPT | 2 | The same in ChatGPT developer mode. For an extension a client doesn't support yet, your NOTES.md records the support status and the fallback works |
+| Works in ChatGPT | 2 | The same in ChatGPT as a custom MCP server. For an extension a client doesn't support yet, your NOTES.md records the support status and the fallback works |
 | Builds what the step asks | 2 | Everything in the step's **What you will build** and **Submission checklist** is there, inside the remote MCP server |
 | Design and code quality | 1 | Clear tool names, descriptions and schemas, correct annotations, recoverable errors, no state kept in the Worker's memory, readable code |
 | Security and tenant isolation | 2 | No secrets in git, inputs validated, every data access scoped to the signed-in user and their company (from step 4), and from step 7 the cross-tenant suite passes and the step's tenant-isolation checklist item is met |
@@ -130,9 +130,9 @@ Each step is graded out of 10. A step passes at 7, and the grader reviews the co
 
 **Project defence (steps 4, 8, 10, 15, 18 and 21):** these steps end a milestone, and each needs a recorded defence (section 10) as well as the points above. The defence is pass or fail. A step that needs one doesn't pass without it, however many points it scores, and it doesn't pass if the defence shows you can't explain your own code. A failed defence can be re-recorded once.
 
-**Automatic fail for the step:** any way for one company to reach another company's data, a committed secret that wasn't rotated, a server that can't be reached at the submitted URL, or code copied from another student.
+**Automatic fail for the step:** any way for one company to reach another company's data (or, from step 20, to change another company's plan or usage), a committed secret that wasn't rotated, a server that can't be reached at the submitted URL, or code copied from another student.
 
-**Capstone (step 21)** is graded out of 20: the 10 points above, plus up to 10 more: every Core row of the requirements table (3), extras that are justified and kept simple, with no technology added without a client need (2), the evaluation results (2), CLIENT.md with the client's acceptance tests (1), the architecture and handover notes (1) and the demo video (1). The capstone also needs its project defence, which is separate from the three-minute demo video: the demo shows the product to a client, and the defence explains the code to the grader.
+**Capstone (step 21)** is graded out of 20: the 10 points above, plus up to 10 more: every Core row of the requirements table (3), extras that are justified and kept simple, with no technology added without a client need (2), the evaluation results (2), CLIENT.md with the client's acceptance tests (1), the architecture and handover notes (1) and the demo video (1). It passes at **14 of 20**, with at least 7 of the first 10. The automatic fails above apply to the capstone too, whatever its total: a cross-tenant leak, an unrotated committed secret, an unreachable server, copied code, or (if you built billing) a way for one company to get another's plan or be charged for another's usage. The capstone also needs its project defence, which is separate from the three-minute demo video: the demo shows the product to a client, and the defence explains the code to the grader.
 
 ## 10. Defend your project
 
