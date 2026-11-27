@@ -102,7 +102,7 @@ Don't introduce another language, host, auth library or database without a maint
 - Keep the running example consistent: a notes server stored in Workers KV (steps 2 to 4, per-user from step 4) that grows into a sales-data server on Neon (step 5 onward) and ends in the generative UI dashboard (step 19). The step 21 capstone is a new product (Stockroom Inventory by default) built from a required core plus at least two extras the student justifies; keep its requirements table (with its Core or extra column) in sync when a step is added or removed. Never keep data in a Worker's memory between requests (book lesson 17.4).
 - Each step deploys as its own Worker named `learn-mcp-step-NN` (e.g. `learn-mcp-step-03`), so earlier steps stay live while they are graded.
 - **One Neon branch per step.** From step 5, each step uses its own Neon branch (`step-NN`), created from the previous step's branch by the copy prompt in steps 6 to 20, so a later migration never breaks an earlier step that is still being graded. The capstone (step 21) starts a new Neon project or branch.
-- Each step's first Claude Code prompt copies the previous step's code into the new folder, skipping the bootcamp's `README.md`, `NOTES.md`, `node_modules/`, `.wrangler/`, `dist/` and `.dev.vars`, and renames the Worker. Keep that prompt when editing a step.
+- Each step's first Claude Code prompt copies the previous step's code into the new folder, skipping the bootcamp's `README.md`, `NOTES.md`, `submission/`, `node_modules/`, `.wrangler/`, `dist/` and `.dev.vars`, and renames the Worker. Keep that prompt when editing a step.
 - Prompts must never ask Claude to write or edit a step's `README.md`. Learner write-ups go in `NOTES.md` in the step folder.
 
 ## Multi-tenancy
@@ -222,6 +222,7 @@ This repo is a student assignment. Students **fork** it, work in their fork, and
 - **Never open pull requests to `panaversity/learn-mcp` on a student's behalf**, and never suggest it. Student work stays in their fork.
 - If you are helping a student in their fork, don't commit or push: they review, commit and push in GitHub Desktop. Only if they explicitly ask you to, push to *their fork's* `origin`, never anywhere else.
 - Each finished step is tagged `step-NN-done` (e.g. `step-01-done`) and pushed to the fork.
+- **One form, updated per step.** A student fills the form in once, then edits the same response after each step to change two fields: the latest step finished and that step's live server URL. A step's proof lives in its folder at the tag: screenshots in `submission/`, and the project defence link (milestone steps) in `NOTES.md`. Never ask a student to put a live server URL in their fork, because the fork is public.
 - Students deploy to their own Cloudflare and Neon accounts. Never hard-code a maintainer's account IDs, URLs or secrets.
 - Students shouldn't edit bootcamp-owned files (`README.md`, `AGENTS.md`, `SUBMITTING.md`, `.claude/skills/`, step `README.md` files), because that causes conflicts when they sync their fork. Their notes go in `NOTES.md` inside the step folder.
 - Every step README ends with a `## Submission checklist`, placed before `## References`. Keep it when editing a step.

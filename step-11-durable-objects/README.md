@@ -80,7 +80,7 @@ Every step is built with **Claude in a thread of your bootcamp's Claude project*
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 10 code into `step-11-durable-objects/`.**
 
 ```text
-Copy my step-10 code into step-11-durable-objects/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-11 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-11 from my step-10 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
+Copy my step-10 code into step-11-durable-objects/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, submission/, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-11 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-11 from my step-10 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
 ```
 
 **2. Switch to plan mode and plan the Durable Object.**
@@ -135,8 +135,9 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: every Durable Object is named from the company and user (`org:<orgId>:user:<userId>`), never from tool input, and the cross-tenant suite still passes
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
+- [ ] Screenshots of a draft order built over several messages and submitted, plus the rate-limit error, in **Claude** and **ChatGPT** are saved in `step-11-durable-objects/submission/`, with anything private cropped out
 - [ ] Tagged `step-11-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submitted in the form: fork URL, tag `step-11-done`, live server URL, and screenshots of a draft order built over several messages and submitted, plus the rate-limit error, in **Claude** and **ChatGPT**
+- [ ] Submission form filled in, or your response updated, with this step and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
 
 ## References
 

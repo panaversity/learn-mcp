@@ -1,6 +1,6 @@
 # Submitting Your Work
 
-This bootcamp is also an assignment. You do all your work in **your own fork** of this repository, and you submit each finished step through the submission form.
+This bootcamp is also an assignment. You do all your work in **your own fork** of this repository, and you submit through one submission form: you fill it in once, then update it as you finish each step.
 
 > ⛔ **Do not open pull requests to this repository.** Pull requests to `panaversity/learn-mcp` are not how you submit, and they will be closed without review. Your work stays in your fork.
 
@@ -62,6 +62,7 @@ To avoid merge conflicts when you sync:
 - Then work through the steps in order, starting with [`step-01-hello-world/`](step-01-hello-world/).
 - Follow the **Build it with Claude Code** section in each step's README, working in a thread of your bootcamp's Claude project.
 - All your code for a step goes inside that step's folder. Each step starts from a copy of your previous step's code.
+- The proof that a step works goes in the same folder: its screenshots in a `submission/` folder, and your write-up in `NOTES.md` ([Submit the step](#8-submit-the-step) says what each holds).
 - Commit often, with clear messages. In GitHub Desktop, read the diff in the **Changes** tab, write a summary such as `step-01: add greet and get_time tools`, click **Commit to main**, then **Push origin**. Claude doesn't commit for you (your project's instructions tell it not to), so every commit is one you have read.
 
 ## 5. Deploy to your own accounts
@@ -84,9 +85,9 @@ When a step is finished, deployed and tested, tag the commit and push the tag in
 
 Check the tag appears under **Tags** on your fork's GitHub page.
 
-Use the tag names `step-01-done`, `step-02-done` … `step-21-done`. The grader reviews the code at your tag, so make sure everything for the step is committed before you tag.
+Use the tag names `step-01-done`, `step-02-done` … `step-21-done`. The grader reviews the code at your tag, so make sure everything for the step, its screenshots and `NOTES.md` included, is committed before you tag.
 
-Tags are final: never move or delete a tag you have submitted, because the grader may already be reviewing it. If you need to fix something after tagging, commit the fix, add a new tag with a version suffix (for example `step-01-done-v2`) the same way, push it, and submit that tag in the form.
+Tags are final: never move or delete a tag you have pushed, because the grader may already be reviewing it. If you need to fix something after tagging, commit the fix, add a new tag with a version suffix (for example `step-01-done-v2`) the same way, and push it. The grader reviews the newest tag for the step.
 
 ## 7. Keep secrets out of git
 
@@ -96,32 +97,49 @@ Tags are final: never move or delete a tag you have submitted, because the grade
 
 ## 8. Submit the step
 
-Submit each step through the form:
+You submit through **one form**. Fill it in when you finish your first step, then update the same response each time you finish another step. The proof that each step works stays in your fork, in the step's folder.
 
 **📝 Submission form: `TODO: FORM LINK (the bootcamp team will add it here)`**
 
-> Until the link is added, keep each finished step tagged and pushed. You can submit every finished step once the form opens.
+> Until the link is added, keep each finished step tagged and pushed. You can fill in the form once it opens.
 
-For each step, the form asks for:
+### What each step's folder holds
+
+Before you tag a step, its folder holds the proof that the step works:
+
+| In the step's folder | What it holds |
+| --- | --- |
+| `submission/` | The screenshots the step's **Submission checklist** names: the step working in claude.ai or Claude Desktop, and the same thing in ChatGPT. Start each file name with `claude-` or `chatgpt-`, for example `submission/claude-greet.png` |
+| `NOTES.md` | Your write-up of the step (see [How each step is graded](#9-how-each-step-is-graded)). At steps 4, 8, 10, 15, 18 and 21 it also holds the link to your recorded project defence (see [Defend your project](#10-defend-your-project)) |
+
+Your fork is public, so crop your name, your email and anything else private out of a screenshot before you commit it. For the same reason, your live server URL goes in the form, not in your fork.
+
+### What the form asks for
 
 | Field | Example |
 | --- | --- |
+| About you | Your name, how to reach you and where you study. You enter these once |
 | Your fork's URL | `https://github.com/<your-username>/learn-mcp` |
-| Step tag | `step-01-done` |
-| Live MCP server URL | `https://learn-mcp-step-01.<your-subdomain>.workers.dev/mcp` |
-| Screenshot: Claude | The step's tool or widget working in claude.ai or Claude Desktop |
-| Screenshot: ChatGPT | The same thing working in ChatGPT |
-| Defence video (steps 4, 8, 10, 15, 18 and 21 only) | A link to your recorded project defence (see [Defend your project](#10-defend-your-project)) |
+| Latest step finished | `Step 1` |
+| Live MCP server URL of that step | `https://learn-mcp-step-01.<your-subdomain>.workers.dev/mcp` |
+
+### When you finish another step
+
+1. Open the form link again, signed in to the same Google account.
+2. Choose **Edit your response**.
+3. Change **Latest step finished** and **Live MCP server URL of that step**, then submit. Everything else stays as you entered it.
+
+The grader reaches an earlier step's server by changing the step number in your latest URL, so keep each Worker's name as its step set it (`learn-mcp-step-NN`).
 
 Each step's README ends with a **Submission checklist** listing exactly what that step needs.
 
 ## 9. How each step is graded
 
-Each step is graded out of 10. A step passes at 7, and the grader reviews the code at your `step-NN-done` tag and the live server URL you submit.
+Each step is graded out of 10. A step passes at 7, and the grader reviews the code at your `step-NN-done` tag and the step's live server.
 
 | Criterion | Points | What the grader checks |
 | --- | --- | --- |
-| Works in Claude | 2 | The step's tools (and widgets, from step 9) work in claude.ai or Claude Desktop, as your screenshot shows |
+| Works in Claude | 2 | The step's tools (and widgets, from step 9) work in claude.ai or Claude Desktop, as your screenshots in `submission/` show |
 | Works in ChatGPT | 2 | The same in ChatGPT developer mode. For an extension a client doesn't support yet, your NOTES.md records the support status and the fallback works |
 | Builds what the step asks | 2 | Everything in the step's **What you will build** and **Submission checklist** is there, inside the remote MCP server |
 | Design and code quality | 1 | Clear tool names, descriptions and schemas, correct annotations, recoverable errors, no state kept in the Worker's memory, readable code |
@@ -130,7 +148,7 @@ Each step is graded out of 10. A step passes at 7, and the grader reviews the co
 
 **Project defence (steps 4, 8, 10, 15, 18 and 21):** these steps end a milestone, and each needs a recorded defence (section 10) as well as the points above. The defence is pass or fail. A step that needs one doesn't pass without it, however many points it scores, and it doesn't pass if the defence shows you can't explain your own code. A failed defence can be re-recorded once.
 
-**Automatic fail for the step:** any way for one company to reach another company's data, a committed secret that wasn't rotated, a server that can't be reached at the submitted URL, or code copied from another student.
+**Automatic fail for the step:** any way for one company to reach another company's data, a committed secret that wasn't rotated, a step's server that can't be reached at its URL, or code copied from another student.
 
 **Capstone (step 21)** is graded out of 20: the 10 points above, plus up to 10 more: every Core row of the requirements table (3), extras that are justified and kept simple, with no technology added without a client need (2), the evaluation results (2), CLIENT.md with the client's acceptance tests (1), the architecture and handover notes (1) and the demo video (1). The capstone also needs its project defence, which is separate from the three-minute demo video: the demo shows the product to a client, and the defence explains the code to the grader.
 
@@ -138,7 +156,7 @@ Each step is graded out of 10. A step passes at 7, and the grader reviews the co
 
 Claude Code writes much of your code, so the bootcamp checks that you understand what it wrote. At the end of each milestone (steps 4, 8, 10, 15, 18 and the step 21 capstone) you record a short **project defence**: a screen recording, with your voice, of you walking through your own code. It is the same conversation a client or an interviewer will have with you.
 
-**Length:** up to five minutes (up to ten for the capstone). **Where:** any link the grader can open without signing in, such as an unlisted YouTube video or a shared Loom or Google Drive file. Link it in the form with the step.
+**Length:** up to five minutes (up to ten for the capstone). **Where:** any link the grader can open without signing in, such as an unlisted YouTube video or a shared Loom or Google Drive file. Put the link in that step's `NOTES.md`.
 
 Cover these four things, in your own words:
 

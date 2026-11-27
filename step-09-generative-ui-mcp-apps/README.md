@@ -78,7 +78,7 @@ Every step is built with **Claude in a thread of your bootcamp's Claude project*
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 8 code into `step-09-generative-ui-mcp-apps/`.**
 
 ```text
-Copy my step-08 code into step-09-generative-ui-mcp-apps/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-09 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-09 from my step-08 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
+Copy my step-08 code into step-09-generative-ui-mcp-apps/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, submission/, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-09 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Then create a Neon branch named step-09 from my step-08 branch and point this step's database settings (the connection string in .dev.vars and as a secret, and Hyperdrive once the server uses it) at the new branch, so my earlier steps keep working while they are graded.
 ```
 
 **2. Switch to plan mode and plan the widgets.**
@@ -133,8 +133,9 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: widgets show only the signed-in company's data, and every tool a widget calls re-checks the caller's company
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
+- [ ] Screenshots of a React widget (table, chart or form) rendering in the chat in **Claude** and **ChatGPT** are saved in `step-09-generative-ui-mcp-apps/submission/`, with anything private cropped out
 - [ ] Tagged `step-09-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submitted in the form: fork URL, tag `step-09-done`, live server URL, and screenshots of a React widget (table, chart or form) rendering in the chat in **Claude** and **ChatGPT**
+- [ ] Submission form filled in, or your response updated, with this step and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
 
 ## References
 

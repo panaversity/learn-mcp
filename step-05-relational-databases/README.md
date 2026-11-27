@@ -94,7 +94,7 @@ Every step is built with **Claude in a thread of your bootcamp's Claude project*
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 4 code into `step-05-relational-databases/`.**
 
 ```text
-Copy my step-04 code into step-05-relational-databases/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-05 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds.
+Copy my step-04 code into step-05-relational-databases/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, submission/, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-05 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds.
 ```
 
 **2. Create a Neon project in the Neon console, then switch to plan mode and plan the change.**
@@ -150,8 +150,9 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] NOTES.md has the 1NF, 2NF and 3NF walkthrough and the ER diagram
 - [ ] It works in claude.ai or Claude Desktop
 - [ ] It works in ChatGPT (developer mode)
+- [ ] Screenshots of the model explaining your schema and answering a business question in **Claude** and **ChatGPT** are saved in `step-05-relational-databases/submission/`, with anything private cropped out
 - [ ] Tagged `step-05-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submitted in the form: fork URL, tag `step-05-done`, live server URL, and screenshots of the model explaining your schema and answering a business question in **Claude** and **ChatGPT**
+- [ ] Submission form filled in, or your response updated, with this step and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
 
 ## References
 

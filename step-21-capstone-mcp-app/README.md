@@ -109,7 +109,7 @@ Every step is built with **Claude in a thread of your bootcamp's Claude project*
 **1. Start a new thread for this step in your bootcamp's Claude project, then copy your step 20 code into `step-21-capstone-mcp-app/` as a starting skeleton.**
 
 ```text
-Copy my step-20 code into step-21-capstone-mcp-app/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-21 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Don't change any features yet.
+Copy my step-20 code into step-21-capstone-mcp-app/ so I can build on it. Copy only the source and config files: skip README.md (this folder already has the bootcamp's README, which must not change), NOTES.md, submission/, node_modules/, .wrangler/, dist/ and .dev.vars. Then rename the Worker in the wrangler config to learn-mcp-step-21 so it deploys alongside my earlier steps instead of replacing them, run npm install, and confirm the project still builds. Don't change any features yet.
 ```
 
 **2. Switch to plan mode and design the product.**
@@ -179,9 +179,11 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Every Core row is implemented, and at least two Extra rows, each justified in NOTES.md (with a fallback where a client doesn't support an extension yet)
 - [ ] NOTES.md has the architecture, evaluation results, setup steps, demo script and price
 - [ ] CLIENT.md has the discovery notes, proposal, price, demo feedback and acceptance test results
-- [ ] Project defence recorded (up to ten minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in the form
+- [ ] Project defence recorded (up to ten minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in your NOTES.md
+- [ ] Screenshots of at least three different screens chosen from intent in **Claude** and **ChatGPT** are saved in `step-21-capstone-mcp-app/submission/`, with anything private cropped out
+- [ ] A link to a demo video of up to three minutes is in NOTES.md
 - [ ] Tagged `step-21-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submitted in the form: fork URL, tag `step-21-done`, live server URL, screenshots of at least three different screens chosen from intent in **Claude** and **ChatGPT**, and a link to a demo video of up to three minutes
+- [ ] Submission form filled in, or your response updated, with this step and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
 
 ## References
 
