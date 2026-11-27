@@ -10,12 +10,12 @@ Prove the server works, keep proving it on every change, and see what it does on
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
-- [17.6 Specify, generate, verify](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/specify-generate-verify/). Writing the checks before trusting what a coding agent built.
-- [17.10 Watching a connector](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/watching-a-connector/). What to log and measure once the server is live.
+- [17.6 How do you trust a connector an agent wrote?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/specify-generate-verify/). Writing the checks before trusting what a coding agent built.
+- [17.10 How do you see what a connector did?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/watching-a-connector/). What to log and measure once the server is live.
 - [Field guide F7, Seeing the server's spans](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#f7-seeing-the-servers-spans). Tracing tool calls on Cloudflare.
-- [18.13 Proving the sign-in keeps companies apart](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/proving-the-sign-in-keeps-companies-apart/). Tests that prove isolation, not just assume it.
-- [18.16 Watching who did what](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/watching-who-did-what/). Logs that answer "who did this?".
-- [MCP Apps field guide F5, Testing a page](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/field-guide-mcp-apps/#f5-testing-a-page). Testing widgets.
+- [18.13 How do you prove companies stay apart?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/proving-the-sign-in-keeps-companies-apart/). Tests that prove isolation, not just assume it.
+- [18.16 Who did what, for which company?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/watching-who-did-what/). Logs that answer "who did this?".
+- [MCP Apps field guide F1, Testing a page](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/field-guide-mcp-apps/#f1-testing-a-page). Testing widgets.
 - *Optional:* [16.8 Watching it run: telemetry](https://agentfactory.panaversity.org/building-ai-workers/skills-and-plugins/watching-it-run/). Telemetry for skills.
 
 **Official docs.** Keep these open while you build:

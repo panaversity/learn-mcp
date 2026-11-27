@@ -10,10 +10,10 @@ Tools are only one of the three things an MCP server can offer. **Resources** ar
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
-- [17.1 MCP in one picture](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/mcp-in-one-picture/). Where tools, resources and prompts sit between the AI app and the server.
+- [17.1 How does an AI app ask a connector for help?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/mcp-in-one-picture/). Where tools, resources and prompts sit between the AI app and the server.
 - [Field guide F8, The protocol in detail](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#f8-the-protocol-in-detail). Resources (data with a fixed name that the host decides to use) and prompts (templates a person picks).
-- [17.2 A tool is its description](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/a-tool-is-its-description/). The model chooses tools; compare that with who chooses resources and prompts.
-- *Optional:* [20.12 Skills that travel with the server](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/skills-that-travel-with-the-server/). A later use of resources: skills are served as `skill://` resources and read with `resources/read`.
+- [17.2 How does the model pick the right tool?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/a-tool-is-its-description/). The model chooses tools; compare that with who chooses resources and prompts.
+- *Optional:* [20.11 How does a skill travel with the connector?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/skills-that-travel-with-the-server/). A later use of resources: skills are served as `skill://` resources and read with `resources/read`.
 
 **Official docs.** Keep these open while you build:
 

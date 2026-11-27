@@ -13,8 +13,8 @@ Ship *know-how* along with tools. Skills over MCP lets a server provide packaged
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
 - [16.1 From a prompt you repeat to a skill](https://agentfactory.panaversity.org/building-ai-workers/skills-and-plugins/from-a-prompt-to-a-skill/). What a skill is.
-- [20.12 Skills that travel with the server](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/skills-that-travel-with-the-server/). The Skills over MCP extension.
-- [20.13 Approving a skill from a server](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/approving-a-skill-from-a-server/). How trust and approval work.
+- [20.11 How does a skill travel with the connector?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/skills-that-travel-with-the-server/). The Skills over MCP extension.
+- [20.12 Who approves a skill from a server?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/approving-a-skill-from-a-server/). How trust and approval work.
 - *Optional:* [16.9 Installing is a trust decision](https://agentfactory.panaversity.org/building-ai-workers/skills-and-plugins/installing-is-a-trust-decision/). Why adding a skill is a trust decision.
 
 **Official docs.** Keep these open while you build:

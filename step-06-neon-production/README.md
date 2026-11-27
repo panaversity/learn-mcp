@@ -22,8 +22,9 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 - [Cloudflare Hyperdrive with Neon](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/neon/). Setting up Hyperdrive for a Neon database.
 - [Neon: connection pooling](https://neon.com/docs/connect/connection-pooling). How Neon pools connections, and when to use it.
 - [Neon: branching](https://neon.com/docs/introduction/branching). A database branch per environment.
-- [Neon: roles](https://neon.com/docs/manage/roles). A least-privilege role for the server.
-- [PostgreSQL: row security policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html). How Postgres row-level security works.
+- [Neon: roles](https://neon.com/docs/manage/roles). A least-privilege role for the server, and why a role made in the Neon Console can skip row-level security.
+- [PostgreSQL: row security policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html). How Postgres row-level security works, and what it doesn't cover (`TRUNCATE`).
+- [PostgreSQL: CREATE VIEW](https://www.postgresql.org/docs/current/sql-createview.html). Why a view needs `security_invoker` to apply the caller's policies.
 
 ## Why this step matters
 
@@ -59,7 +60,7 @@ The step 5 sales server, production-ready: `list_orders` (filters and cursor pag
 - **Least privilege**: The server's role can read and write business rows, but can't change the schema.
 - **Transactions**: A group of writes that all succeed or all fail.
 - **Row-level security**: Database policies that filter every query to the current company's rows, as a second guard behind your tool code.
-- **Forced RLS**: `FORCE ROW LEVEL SECURITY` makes the policies apply even to the table's owner, so no role you connect as can skip them by accident.
+- **Forced RLS**: `FORCE ROW LEVEL SECURITY` makes the policies apply even to the table's owner. A role with `BYPASSRLS` still skips them, which is why the connector role must not have it.
 - **`USING` and `WITH CHECK`**: `USING` hides other companies' rows from reads, updates and deletes; `WITH CHECK` refuses writing a row for another company.
 - **Failing closed**: `current_setting('app.tenant_id', true)` returns null when no company is set, so a query with no company sees no rows.
 - **Data matrix**: A test that acts as one company against every table and every route, and must find nothing of another company's.
@@ -102,7 +103,7 @@ Read the Neon and Hyperdrive docs linked in this step. Plan how to make this ser
 **3. Add Hyperdrive, branches and a least-privilege role.**
 
 ```text
-Use this step's step-06 Neon branch as its production branch, create a dev branch from it, and create a role for the server that can read and write the business tables but not change the schema. Set up Hyperdrive in front of the production branch, bind it in the wrangler config, and keep using the dev branch locally. Explain what pooling changes. Use two roles: the owner role runs migrations, and the connector role the Worker uses can read and write business rows but can't change the schema and has no BYPASSRLS. Turn Hyperdrive's query caching off for this database, and explain why a cache that doesn't see the company setting could hand one company another's rows (book lesson 19.9).
+Use this step's step-06 Neon branch as its production branch, create a dev branch from it, and create a role for the server that can read and write the business tables but not change the schema. Set up Hyperdrive in front of the production branch, bind it in the wrangler config, and keep using the dev branch locally. Explain what pooling changes. Use two roles: the owner role runs migrations, and the connector role the Worker uses can read and write business rows but can't change the schema and has no BYPASSRLS. Create the connector role with SQL (CREATE ROLE), not in the Neon Console, API or CLI, because Neon gives the roles made there neon_superuser privileges, which include BYPASSRLS, and show me a query that proves the connector role can't bypass row-level security. Turn Hyperdrive's query caching off for this database, and explain why a cache that doesn't see the company setting could hand one company another's rows (book lesson 19.9).
 ```
 
 **4. Build the list and summary tools.**
@@ -120,7 +121,7 @@ Add create_order with strict validation. Insert the order and its order_items in
 **6. Add row-level security.**
 
 ```text
-Add row-level security to every business table, as book lessons 19.8 and 19.9 teach: ENABLE and FORCE row level security, and a policy for the connector role with USING (org_id = current_setting('app.tenant_id', true)) and the same WITH CHECK, so a query with no company set sees nothing. Add one forTenant(ctx, fn) helper that opens a transaction, calls set_config('app.tenant_id', $1, true) with the company from the verified token as a parameter, runs the tool's queries and commits, and make every tool use it. Then close the gaps from lesson 19.10: make every "not found" identical whether the row is missing or belongs to another company, make sure the connector role can't reach a SECURITY DEFINER function, and keep rows out of logs and errors. Finally add a data matrix test (lesson 19.12) that acts as one company against every table and tool, and plant three bugs (a tool with no WHERE clause, a policy without WITH CHECK, a query outside forTenant) that the matrix must catch before you remove them.
+Add row-level security to every business table, as book lessons 19.8 and 19.9 teach: ENABLE and FORCE row level security, and a policy for the connector role with USING (org_id = current_setting('app.tenant_id', true)) and the same WITH CHECK, so a query with no company set sees nothing. Name the connector role in every policy (TO), because Postgres combines permissive policies with OR and a policy without TO applies to every role. Add one forTenant(ctx, fn) helper that opens a transaction, calls set_config('app.tenant_id', $1, true) with the company from the verified token as a parameter, runs the tool's queries and commits, and make every tool use it. Then close the gaps from lesson 19.10: make every "not found" identical whether the row is missing or belongs to another company, make sure the connector role can't reach a SECURITY DEFINER function or a view that isn't security_invoker, give it no TRUNCATE right on any business table (TRUNCATE is outside row security), and keep rows out of logs and errors. Finally add a data matrix test (lesson 19.12) that acts as one company against every table and tool, and plant three bugs (a tool with no WHERE clause, a policy without WITH CHECK, a query outside forTenant) that the matrix must catch before you remove them.
 ```
 
 **7. Deploy and test.**

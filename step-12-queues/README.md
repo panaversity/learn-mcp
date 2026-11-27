@@ -12,8 +12,8 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 
 > **Note:** The book doesn't cover Cloudflare Queues yet. The lessons below give the ideas this step relies on: work that is safe to repeat, and errors that say what to do next. Use the [Queues docs](https://developers.cloudflare.com/queues/) for the feature itself.
 
-- [17.4 Stateless servers](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/stateless-servers/). Why background work can't live in the Worker's memory.
-- [17.3 Errors that say what to do next](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/errors-that-say-what-to-do-next/). Reporting rows that failed so the model and the user can fix them.
+- [17.4 What if a different copy answers the next call?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/stateless-servers/). Why background work can't live in the Worker's memory.
+- [17.3 What should a tool say when it fails?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/errors-that-say-what-to-do-next/). Reporting rows that failed so the model and the user can fix them.
 - [19.17 What if the database is slow or asleep?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/a-database-behind-a-stateless-server/). Writing to Neon from many short-lived consumers.
 - [19.6 How do you change tables that are in use?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/changing-the-tables-safely/). Applying each change once, which is the same idea as an idempotent consumer.
 - [14.8 Async and await](https://agentfactory.panaversity.org/building-ai-workers/structuring-programs/async-and-await/). Work that finishes after the reply.

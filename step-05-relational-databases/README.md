@@ -17,7 +17,7 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 - [Field guide F5, The SQL in detail](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/field-guide-business-data-and-retrieval/#f5-the-sql-in-detail). The SQL reference, with first, second and third normal form side by side.
 - [Field guide F1, Postgres from zero](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/field-guide-business-data-and-retrieval/#f1-postgres-from-zero) and [F2, Neon from zero](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/field-guide-business-data-and-retrieval/#f2-neon-from-zero). Setting up Postgres on Neon.
 - [19.6 How do you change tables that are in use?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/changing-the-tables-safely/). Numbered migrations, applied once and in order.
-- *Optional:* [18.8 Tables, rows and relationships](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/tables-rows-and-relationships/). The same ideas at reading depth, if you want a gentler start.
+- *Optional:* [18.8 How do you read the sign-in server's records?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/tables-rows-and-relationships/). The same ideas at reading depth, if you want a gentler start.
 
 **Official docs.** Keep these open while you build:
 

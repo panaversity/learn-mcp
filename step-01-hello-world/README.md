@@ -12,7 +12,7 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 
 - [12.1 From a chat to a coding agent](https://agentfactory.panaversity.org/building-ai-workers/agentic-coding/from-chat-to-coding-agent/). How to drive Claude Code to build the server.
 - [14.7 JSON and REST APIs](https://agentfactory.panaversity.org/building-ai-workers/structuring-programs/json-and-rest-apis/). MCP is JSON over HTTP, so you'll read a lot of requests and responses.
-- [17.1 MCP in one picture](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/mcp-in-one-picture/). Client, server, tool call and reply in one diagram.
+- [17.1 How does an AI app ask a connector for help?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/mcp-in-one-picture/). Client, server, tool call and reply in one diagram.
 - [Field guide F1, Cloudflare from zero](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#f1-cloudflare-from-zero-and-running-the-servers-on-your-computer). What a Worker is and how to run one locally.
 - [Field guide F2, The MCP Inspector](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#f2-the-mcp-inspector). Test the server before connecting a client.
 

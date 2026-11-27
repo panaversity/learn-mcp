@@ -10,11 +10,12 @@ Take the server to production on Cloudflare and verify it properly across all ta
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
-- [17.8 Putting a connector online safely](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/securing-a-remote-server/). Access keys, Origin checks and staging.
+- [17.8 How do you put a connector online safely?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/securing-a-remote-server/). Access keys, Origin checks and staging.
 - [Field guide F6, Deploying to Cloudflare Workers](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#f6-deploying-to-cloudflare-workers). Deploying step by step.
-- [17.6 Specify, generate, verify](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/specify-generate-verify/). Testing what the agent built.
-- [20.18 How today's tools realize it](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-todays-tools-realize-it/). What Claude and ChatGPT support today.
-- [MCP Apps field guide F2 ChatGPT in detail and F5 Testing a page](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/field-guide-mcp-apps/#f2-chatgpt-in-detail). Connecting and testing in ChatGPT.
+- [17.6 How do you trust a connector an agent wrote?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/specify-generate-verify/). Testing what the agent built.
+- [20.16 How do today's products do this?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-todays-tools-realize-it/). What Claude and ChatGPT support today.
+- [20.16 How do today's products do this? "How to show your connector's screen in your app"](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-todays-tools-realize-it/#how-to-show-your-connectors-screen-in-your-app). Connecting in Claude and in ChatGPT, step by step.
+- [MCP Apps field guide F1, Testing a page](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/field-guide-mcp-apps/#f1-testing-a-page). Testing a page before you connect it.
 
 **Official docs.** Keep these open while you build:
 

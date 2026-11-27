@@ -15,9 +15,9 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 > **Note:** The book doesn't cover the Events extension yet (lesson 20.1 lists it as "Not covered"). The lessons below are the nearest background. Rely on the [MCP Events docs](https://modelcontextprotocol.io/extensions/events/overview) for the extension itself.
 
 - [Field guide: change notifications (`subscriptions/listen`, `listChanged`)](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#change-notifications). How servers tell clients that something changed, and the core-MCP mechanism Events builds beyond.
-- [20.15 Machines with no person](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/machines-with-no-person/). Work that runs without a person watching, the setting where events matter most.
-- [17.7 Untrusted output, and data that should not leave](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/untrusted-output/). What an event payload may and may not carry.
-- [20.1 What an MCP extension is](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/what-an-mcp-extension-is/). Where Events sits among the MCP extensions.
+- [20.14 How does a program sign in with no person?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/machines-with-no-person/). Work that runs without a person watching, the setting where events matter most.
+- [17.7 What if a record tells the AI what to do?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/untrusted-output/). What an event payload may and may not carry.
+- [20.1 What is an MCP extension?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/what-an-mcp-extension-is/). Where Events sits among the MCP extensions.
 
 **Official docs.** Keep these open while you build:
 

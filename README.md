@@ -231,7 +231,7 @@ Each step's code lives in its own folder and starts from a copy of the previous 
 
 We test everything in claude.ai and Claude Desktop, and we also make it work in ChatGPT. To stay portable, every UI we build ships as a standard **[MCP App](https://modelcontextprotocol.io/seps/1865-mcp-apps-interactive-user-interfaces-for-mcp)**: an HTML/JS app that the host renders in a sandboxed frame in the chat. We use the standard MCP Apps APIs (`@modelcontextprotocol/ext-apps`) rather than any client-specific API, so one server works in both clients.
 
-We use the three kinds of screen from book lesson [20.10 Screens the AI designs](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/screens-the-ai-designs/):
+We use the three kinds of screen from book lesson [20.10 Should the AI design the screen?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/screens-the-ai-designs/):
 
 | Kind of screen | What it means | Where |
 | --- | --- | --- |

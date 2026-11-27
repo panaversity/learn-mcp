@@ -12,10 +12,10 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 
 > **Note:** Chapters 12 to 20 of the book, which this bootcamp follows, don't cover durable execution or Cloudflare Workflows. The lessons below give the ideas this step relies on, and the [Cloudflare Workflows docs](https://developers.cloudflare.com/workflows/) teach the feature itself.
 
-- [17.4 Stateless servers](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/stateless-servers/). Why a job's progress can't live in the Worker's memory.
+- [17.4 What if a different copy answers the next call?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/stateless-servers/). Why a job's progress can't live in the Worker's memory.
 - [14.8 Async and await](https://agentfactory.panaversity.org/building-ai-workers/structuring-programs/async-and-await/). Waiting on long work in TypeScript.
-- [20.15 Machines with no person](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/machines-with-no-person/). Long work that a client checks on later, which this step builds by hand and step 14 makes standard.
-- *Optional:* [17.3 Errors that say what to do next](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/errors-that-say-what-to-do-next/). Reporting a failed run so the model knows what to do.
+- [20.14 How does a program sign in with no person?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/machines-with-no-person/). Long work that a client checks on later, which this step builds by hand and step 14 makes standard.
+- *Optional:* [17.3 What should a tool say when it fails?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/errors-that-say-what-to-do-next/). Reporting a failed run so the model knows what to do.
 
 **Official docs.** Keep these open while you build:
 

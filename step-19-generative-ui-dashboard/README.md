@@ -10,10 +10,10 @@ Put the bootcamp's north star to work on the sales server. A user asks in plain 
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
-- [20.10 Screens the AI designs](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/screens-the-ai-designs/). Fixed, approved-parts and open screens. This is the core of generative UI.
-- [20.16 How the pieces fit](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-the-pieces-fit/). Core MCP plus extensions as one connector, and common mistakes.
-- [20.4 Who a click acts as](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/who-a-click-acts-as/). Who a widget action runs as.
-- [20.7 Untrusted text on the screen](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/untrusted-text-on-the-screen/). Handling text you didn't write safely in a widget.
+- [20.10 Should the AI design the screen?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/screens-the-ai-designs/). Fixed, approved-parts and open screens. This is the core of generative UI.
+- [20.15 How do the pieces fit together?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-the-pieces-fit/). Core MCP plus extensions as one connector, and common mistakes.
+- [20.4 Who does a click act as?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/who-a-click-acts-as/). Who a widget action runs as.
+- [20.7 What if the data holds page code?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/untrusted-text-on-the-screen/). Handling text you didn't write safely in a widget.
 - [Lab 20b, a full interactive app](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/lab-review-workspace/). A worked example the size of this step.
 
 **Official docs.** Keep these open while you build:

@@ -206,7 +206,7 @@ Locally from `.dev.vars` (ignored by git; commit `.dev.vars.example` with placeh
 - [14.7 JSON and REST APIs, "Where does the key go?"](https://agentfactory.panaversity.org/building-ai-workers/structuring-programs/json-and-rest-apis/#where-does-the-key-go). Keys belong in environment variables, never in code or a commit.
 - [Field guide F0, Keys on your computer](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#f0-keys-on-your-computer). Keys in files git ignores, out of the chat and out of the agent's sight.
 - [Field guide F1, "The words you will meet"](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#the-words-you-will-meet). What `.dev.vars` is.
-- [17.8 Putting a connector online safely, "Where do the secrets live?"](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/securing-a-remote-server/#where-do-the-secrets-live). Secrets once the server is deployed.
+- [17.8 How do you put a connector online safely? "Where do the secrets live?"](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/securing-a-remote-server/#where-do-the-secrets-live). Secrets once the server is deployed.
 - [Field guide F6, "Secrets"](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#secrets). Setting a deployed Worker's secrets with Wrangler.
 
 **Outside the book** (it covers making new keys after a leak, in F0 and chapter 18, but not cleaning a key out of a public repo's history): [GitHub: Removing sensitive data from a repository](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).

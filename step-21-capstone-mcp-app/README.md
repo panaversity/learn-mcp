@@ -12,13 +12,13 @@ Build one complete, client-ready MCP app with the simplest design that meets a c
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
-- [17.5 When to write your own connector](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/built-in-custom-skill-or-connector/). Deciding what the client actually needs before building.
-- [20.16 How the pieces fit](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-the-pieces-fit/). Core MCP plus extensions as one connector, and the common mistakes.
-- [18.9 What a tenant is](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/what-a-tenant-is/). A product serves many companies, and each company's people and data stay apart.
+- [17.5 When is a connector worth writing?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/built-in-custom-skill-or-connector/). Deciding what the client actually needs before building.
+- [20.15 How do the pieces fit together?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-the-pieces-fit/). Core MCP plus extensions as one connector, and the common mistakes.
+- [18.9 How does one connector serve many companies?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/what-a-tenant-is/). A product serves many companies, and each company's people and data stay apart.
 - [19.7 Shared tables, or a database per company?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/three-ways-to-keep-data-apart/). Choosing how tenants are separated in Neon.
-- [20.17 Charging and the screen](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/charging-and-the-screen/). Turning the app into something a client pays for.
+- [20.15 How do the pieces fit together? "Where does the check of who has paid go?"](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-the-pieces-fit/#where-does-the-check-of-who-has-paid-go). Turning the app into something a client pays for.
 - [Lab 20b, a full interactive app](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/lab-review-workspace/). A worked example of a full app, end to end.
-- *Optional:* [17.10 Watching a connector](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/watching-a-connector/). Knowing what the app is doing once real users arrive.
+- *Optional:* [17.10 How do you see what a connector did?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/watching-a-connector/). Knowing what the app is doing once real users arrive.
 
 **Official docs.** Keep these open while you build:
 

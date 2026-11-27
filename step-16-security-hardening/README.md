@@ -10,12 +10,12 @@ Your server now holds business data, acts for signed-in users, runs background j
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
-- [17.7 Untrusted output, and data that should not leave](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/untrusted-output/). Treating what tools return as untrusted, and keeping private data in.
-- [17.8 Putting a connector online safely](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/securing-a-remote-server/). Access keys, Origin checks and staging.
-- [18.6 A token made for one door](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/a-token-made-for-one-door/). Checking that every token was issued for your server (its audience).
-- [18.7 Permission per tool](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/permission-per-tool/). Scopes per tool, 403 responses and step-up.
-- [18.4 Two guards for the code](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/two-guards-for-the-code/). Two independent checks for every rule that matters.
-- [20.5 Hidden is not protected](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/hidden-is-not-protected/) and [20.7 Untrusted text on the screen](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/untrusted-text-on-the-screen/). What a widget must never rely on, and showing text you didn't write safely.
+- [17.7 What if a record tells the AI what to do?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/untrusted-output/). Treating what tools return as untrusted, and keeping private data in.
+- [17.8 How do you put a connector online safely?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/securing-a-remote-server/). Access keys, Origin checks and staging.
+- [18.6 Is this token real, and is it for this connector?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/a-token-made-for-one-door/). Checking that every token was issued for your server (its audience).
+- [18.7 What may each person do?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/permission-per-tool/). Scopes per tool, 403 responses and step-up.
+- [18.4 What if someone copies the code?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/two-guards-for-the-code/). Two independent checks for every rule that matters.
+- [20.5 Does hiding a tool protect it?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/hidden-is-not-protected/) and [20.7 What if the data holds page code?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/untrusted-text-on-the-screen/). What a widget must never rely on, and showing text you didn't write safely.
 - [Field guide F8, More input during a call](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/field-guide-connectors/#more-input-during-a-call). How a stateless tool asks for a confirmation, and why the state it sends back must be protected.
 - *Optional:* [19.10 What can still leak when the rows are safe?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/where-the-guarantee-stops/). Where row-level security stops protecting you.
 

@@ -10,12 +10,12 @@ Turn the server into something you can sell. You add plans and payment with Stri
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
-- [17.9 Charging for a connector](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/charging-for-a-connector/). Value on the server, a plan check on every call, and payment outside the AI.
-- [20.17 Charging and the screen](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/charging-and-the-screen/). The paid-plan check stays on the server, and no screen holds a checkout.
-- [17.5 When to write your own connector](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/built-in-custom-skill-or-connector/). What a client will actually pay for.
-- [20.18 How today's tools realize it](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-todays-tools-realize-it/). Where MCP Apps run today, and what each client supports.
-- [MCP Apps field guide F1, Claude in detail](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/field-guide-mcp-apps/#f1-claude-in-detail) and [F2, ChatGPT in detail](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/field-guide-mcp-apps/#f2-chatgpt-in-detail). Each client's rules, including directory screenshots.
-- [MCP Apps field guide F6, The interactive-connector checklist](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/field-guide-mcp-apps/#f6-the-interactive-connector-checklist). The checks to pass before you publish.
+- [17.9 How do you charge for a connector?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/charging-for-a-connector/). Value on the server, a plan check on every call, and payment outside the AI.
+- [20.15 How do the pieces fit together? "Where does the check of who has paid go?"](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-the-pieces-fit/#where-does-the-check-of-who-has-paid-go). The paid-plan check stays on the server, and no screen holds a checkout.
+- [17.5 When is a connector worth writing?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/built-in-custom-skill-or-connector/). What a client will actually pay for.
+- [20.16 How do today's products do this?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-todays-tools-realize-it/). Where MCP Apps run today, and what each client supports.
+- [20.16 How do today's products do this? "Product reference"](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-todays-tools-realize-it/#product-reference). Each client's rules, including directory screenshots.
+- [MCP Apps field guide F2, The interactive-connector checklist](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/field-guide-mcp-apps/#f2-the-interactive-connector-checklist). The checks to pass before you publish.
 
 **Official docs.** Keep these open while you build:
 
@@ -90,7 +90,7 @@ Copy my step-19 code into step-20-billing-and-distribution/ so I can build on it
 **2. Switch to plan mode and design the plans.**
 
 ```text
-Read book lessons 17.9 and 20.17 (linked in this step). Propose three plans for this sales server with monthly limits that cover my Cloudflare and Neon costs, and plan how the server checks the plan on every tool call, where usage is counted, and how payment happens outside the chat.
+Read book lessons 17.9 and 20.15 (linked in this step). Propose three plans for this sales server with monthly limits that cover my Cloudflare and Neon costs, and plan how the server checks the plan on every tool call, where usage is counted, and how payment happens outside the chat.
 ```
 
 **3. Add Stripe.**

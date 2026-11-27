@@ -10,11 +10,11 @@ Learn to design tools that models use correctly. That means clear names and desc
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
-- [17.2 A tool is its description](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/a-tool-is-its-description/). The model chooses tools from their names, descriptions and schemas.
-- [17.3 Errors that say what to do next](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/errors-that-say-what-to-do-next/). Writing errors the model can recover from.
+- [17.2 How does the model pick the right tool?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/a-tool-is-its-description/). The model chooses tools from their names, descriptions and schemas.
+- [17.3 What should a tool say when it fails?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/errors-that-say-what-to-do-next/). Writing errors the model can recover from.
 - [14.5 What a schema holds, and what it lets through](https://agentfactory.panaversity.org/building-ai-workers/structuring-programs/schema-rules/). Validating input with Zod-style schemas.
-- [17.4 Stateless servers](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/stateless-servers/). Why tools on Workers must not keep state between calls.
-- [17.7 Untrusted output, and data that should not leave](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/untrusted-output/). What a tool should and should not return.
+- [17.4 What if a different copy answers the next call?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/stateless-servers/). Why tools on Workers must not keep state between calls.
+- [17.7 What if a record tells the AI what to do?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/untrusted-output/). What a tool should and should not return.
 
 **Official docs.** Keep these open while you build:
 
@@ -99,7 +99,7 @@ Replace the demo tools with a notes toolset: list_notes, get_note, create_note a
 **4. Add structured output and annotations.**
 
 ```text
-Make each tool return structured content alongside a short human-readable text summary. Add tool annotations: mark the read tools readOnlyHint and delete_note destructiveHint. Explain how Claude and ChatGPT use these hints.
+Make each tool return structured content alongside a short human-readable text summary, and declare an output schema for each tool so the structured content must match it. Add tool annotations: mark the read tools readOnlyHint and delete_note destructiveHint. Explain how Claude and ChatGPT use these hints.
 ```
 
 **5. Make errors useful.**

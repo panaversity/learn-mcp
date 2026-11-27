@@ -10,11 +10,11 @@ Give the server a face. Tools return interactive React widgets (tables, charts, 
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
-- [20.1 What an MCP extension is](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/what-an-mcp-extension-is/). Extensions, their stages and fallbacks.
-- [20.2 When a screen beats text](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/when-a-screen-beats-text/). When a widget is worth it.
-- [20.3 How an MCP App works](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-an-mcp-app-works/). The `ui://` resource, the tool pointer, the sandbox and messaging.
-- [20.6 The sandbox](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/the-sandbox/). What the iframe can and cannot do.
-- [20.9 A text answer behind every screen, in every AI app](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/a-text-answer-behind-every-screen/). Making the same widget work in Claude and ChatGPT.
+- [20.1 What is an MCP extension?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/what-an-mcp-extension-is/). Extensions, their stages and fallbacks.
+- [20.2 When does a screen beat text?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/when-a-screen-beats-text/). When a widget is worth it.
+- [20.3 How does a tool get a screen?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/how-an-mcp-app-works/). The `ui://` resource, the tool pointer, the sandbox and messaging.
+- [20.6 What can the page reach?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/the-sandbox/). What the iframe can and cannot do.
+- [20.9 What if the AI app shows no screens?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/a-text-answer-behind-every-screen/). Making the same widget work in Claude and ChatGPT.
 
 **Official docs.** Keep these open while you build:
 
@@ -84,7 +84,7 @@ Copy my step-08 code into step-09-generative-ui-mcp-apps/ so I can build on it. 
 **2. Switch to plan mode and plan the widgets.**
 
 ```text
-Use the build-mcp-app skill. Plan how to add MCP Apps widgets to this server using React and the standard @modelcontextprotocol/ext-apps APIs only, with nothing Claude-specific or ChatGPT-specific, so it works in both. Propose the build setup for bundling widgets.
+Use the build-mcp-app skill. Plan how to add MCP Apps widgets to this server using React and the standard @modelcontextprotocol/ext-apps APIs only, with nothing Claude-specific or ChatGPT-specific, so it works in both. Use the current 2.x release of @modelcontextprotocol/ext-apps, which works with the MCP SDK v2 this server uses; the skill's examples pin 1.2.2, which needs SDK v1. Propose the build setup for bundling widgets.
 ```
 
 **3. Set up the widget build.**
@@ -96,7 +96,7 @@ Set up a React widget build that outputs self-contained bundles the server can s
 **4. Build the first widget.**
 
 ```text
-Build an OrdersTable widget and link it to list_orders, so the table renders in the chat with the tool's result. Follow the skill's guidance on payload size and theming.
+Build an OrdersTable widget and link it to list_orders, so the table renders in the chat with the tool's result. Keep the tool's existing sign-in, role and company checks exactly as they are when you link the widget. Follow the skill's guidance on payload size and theming.
 ```
 
 **5. Add more widgets.**

@@ -11,18 +11,19 @@ Protect the server so that only signed-in users can use it, and so that every to
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
 - [18.1 Who is calling?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/who-is-calling/). Why a shared key is not enough.
-- [18.2 Sign-in in one picture](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/sign-in-in-one-picture/). The parties in OAuth and the flow that starts with the first 401.
-- [18.3 Finding the door](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/finding-the-door/). How clients discover where to sign in (protected-resource discovery).
-- [18.7 Permission per tool](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/permission-per-tool/). Scopes per tool, 403 responses and step-up.
-- [18.9 What a tenant is](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/what-a-tenant-is/). A product serves many companies, and each company's people and data stay apart.
+- [18.2 How does signing in become a token?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/sign-in-in-one-picture/). The parties in OAuth and the flow that starts with the first 401.
+- [18.3 Where does the app send you to sign in?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/finding-the-door/). How clients discover where to sign in (protected-resource discovery).
+- [18.7 What may each person do?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/permission-per-tool/). Scopes per tool, 403 responses and step-up.
+- [18.9 How does one connector serve many companies?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/what-a-tenant-is/). A product serves many companies, and each company's people and data stay apart.
 - [Field guide F3, Better Auth from zero](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/field-guide-securing-connectors/#f3-better-auth-from-zero). Read F2 for D1 as well. Its "Going further: sign in with your company (SSO)" section explains how SSO and the connector's sign-in work together.
-- *Optional:* [20.14 Employees through their company](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/employees-through-their-company/). Enterprise-Managed Authorization: the company's identity provider decides which employees may use a connector, so nobody clicks a consent screen.
+- *Optional:* [20.13 How does a company decide which employees connect?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/employees-through-their-company/). Enterprise-Managed Authorization: the company's identity provider decides which employees may use a connector, so nobody clicks a consent screen.
 
 **Official docs.** Keep these open while you build:
 
 - [MCP: Authorization](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization). The OAuth rules every remote MCP server follows.
 - [MCP: Authorization server discovery](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/authorization-server-discovery). The metadata clients look for after a 401.
 - [MCP: Client registration](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/client-registration). How Claude and ChatGPT register with your auth server. Client ID Metadata Documents are now the preferred way; Dynamic Client Registration is deprecated in this spec version but still allowed for older clients.
+- [MCP: Authorization security considerations](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations). What the auth server must show on the consent screen, and the risks of fetching client metadata.
 - [MCP: Authorization extensions](https://modelcontextprotocol.io/extensions/auth/overview). What the official extensions add on top of the core spec: client credentials for machines, and Enterprise-Managed Authorization for companies.
 - [MCP: Enterprise-Managed Authorization](https://modelcontextprotocol.io/extensions/auth/enterprise-managed-authorization). How a company's identity provider (such as Okta) authorizes your server once for all its staff.
 - [Better Auth: MCP plugin](https://better-auth.com/docs/plugins/mcp). Better Auth's support for MCP servers.
@@ -138,7 +139,7 @@ Set the needed secrets with Wrangler, deploy, and give me a checklist for connec
 **8. Run a security review.**
 
 ```text
-Review the auth setup for security issues: token validation, redirect URIs, secret handling and CORS. List anything to fix and fix it.
+Review the auth setup for security issues: token validation, redirect URIs, secret handling and CORS. Then check three things in the MCP spec's authorization security considerations: the consent screen shows the host of the redirect address, the auth server can't be made to fetch a client metadata document from an internal address, and the auth server returns `iss` with the authorization code and says so in its metadata. List anything to fix and fix it.
 ```
 
 **9. Optional: add single sign-on for a client company.** You'll need a test identity provider, such as a free Okta developer account or Microsoft Entra ID.

@@ -68,7 +68,7 @@ The step 7 multi-tenant sales server, now with search by meaning:
 - **Citation**: The document and line returned with every passage, so a person can check the answer.
 - **Question set**: A fixed list of questions with the passage that should come back, or `abstain`, run on every change.
 - **Hybrid search**: Search by words and by meaning, merged. Worth adding only when the question set shows it helps, for example with product codes.
-- **Vector index (HNSW)**: An index that finds near neighbours fast on large tables, at the cost of exactness. Check with `EXPLAIN` whether it is used.
+- **Vector index (HNSW)**: An index that finds near neighbours fast on large tables, at the cost of exactness. Check with `EXPLAIN` whether it is used. pgvector uses it only when the query orders by the distance operator and has a `LIMIT`.
 
 ## Planned outline
 
@@ -138,7 +138,7 @@ Create evals/retrieval.json with twelve questions, six per company: five that th
 **8. Indexes, cost, deploy and test.**
 
 ```text
-Show me with EXPLAIN whether a search uses a vector index at this size, add an HNSW index and explain when it starts to matter, and estimate the storage and Workers AI cost per thousand passages. Then deploy and give me prompts to try in Claude and ChatGPT as users of two companies: a policy question in the user's own words, a question the policies don't answer (it must abstain), a product search by meaning, and the same question asked by each company getting each company's own rule.
+Show me with EXPLAIN whether a search uses a vector index at this size, add an HNSW index and explain when it starts to matter. Make sure the search orders by the distance operator with a LIMIT, because pgvector only uses the index for that shape of query. Explain why the company filter, applied after an approximate index scan, can return fewer than three passages, and whether to turn on pgvector's iterative index scans. Estimate the storage and Workers AI cost per thousand passages. Then deploy and give me prompts to try in Claude and ChatGPT as users of two companies: a policy question in the user's own words, a question the policies don't answer (it must abstain), a product search by meaning, and the same question asked by each company getting each company's own rule.
 ```
 
 ## Testing targets

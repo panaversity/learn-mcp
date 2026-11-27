@@ -10,16 +10,16 @@ Almost every server you build for a client, and every product you sell, serves m
 
 This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentfactory.panaversity.org/). Study these lessons from the book **before** you start building this step:
 
-- [18.9 What a tenant is](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/what-a-tenant-is/). A product serves many companies, and each company's people and data stay apart.
-- [18.10 Where the tenant comes from](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/where-the-tenant-comes-from/). The company comes from the verified token, never from what the model sends.
-- [18.12 What else carries the company](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/what-else-carries-the-company/). Keys, caches, logs and background work must carry the company too.
-- [18.14 A company's life, in the sign-in server](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/a-companys-life/). Creating a company, inviting and removing members, and closing it.
+- [18.9 How does one connector serve many companies?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/what-a-tenant-is/). A product serves many companies, and each company's people and data stay apart.
+- [18.10 Which company is this request for?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/where-the-tenant-comes-from/). The company comes from the verified token, never from what the model sends.
+- [18.12 What can still leak after the token is checked?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/what-else-carries-the-company/). Keys, caches, logs and background work must carry the company too.
+- [18.14 How does a company come in, change and leave?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/a-companys-life/). Creating a company, inviting and removing members, and closing it.
 - [19.7 Shared tables, or a database per company?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/three-ways-to-keep-data-apart/). Shared tables, a schema per company or a database per company, and when to use each.
 - [19.9 What if the last call's company is still set?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/one-company-per-transaction/). Setting the company for one transaction only, so a pooled connection never leaks it.
 - [19.11 How does each company keep its own rules and data?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/each-companys-own-rules-and-data/). Per-company settings and rules without per-company code.
 - [19.12 How do you prove the data stays apart?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/proving-the-data-stays-apart/). Tests that try to cross the line, and must fail.
 - [Field guide F9, The multi-tenant sign-in checklist](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/field-guide-securing-connectors/#f9-the-multi-tenant-sign-in-checklist) and [F7, The multi-tenant data checklist](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/field-guide-business-data-and-retrieval/#f7-the-multi-tenant-data-checklist). The checks you will turn into tests.
-- *Optional:* [18.13 Proving the sign-in keeps companies apart](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/proving-the-sign-in-keeps-companies-apart/) and [19.10 What can still leak when the rows are safe?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/where-the-guarantee-stops/). What row-level security does not cover.
+- *Optional:* [18.13 How do you prove companies stay apart?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/proving-the-sign-in-keeps-companies-apart/) and [19.10 What can still leak when the rows are safe?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/where-the-guarantee-stops/). What row-level security does not cover.
 
 **Official docs.** Keep these open while you build:
 

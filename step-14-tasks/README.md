@@ -14,9 +14,9 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 
 > **Note:** The book covers the Tasks extension in one section of lesson 20.15 and as an optional lab task, not in a full lesson yet. Use the [MCP Tasks docs](https://modelcontextprotocol.io/extensions/tasks/overview) to fill the gaps.
 
-- [20.15 Machines with no person, section "What is the Tasks extension?"](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/machines-with-no-person/). Task handles, `tasks/get` and `input_required`.
+- [20.14 How does a program sign in with no person? "What is the Tasks extension?"](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/machines-with-no-person/). Task handles, `tasks/get` and `input_required`.
 - [14.8 Async and await](https://agentfactory.panaversity.org/building-ai-workers/structuring-programs/async-and-await/). Waiting on long work.
-- [20.1 What an MCP extension is](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/what-an-mcp-extension-is/). Tasks is in beta, and how fallbacks work.
+- [20.1 What is an MCP extension?](https://agentfactory.panaversity.org/building-ai-workers/mcp-apps/what-an-mcp-extension-is/). Tasks is in beta, and how fallbacks work.
 
 **Official docs.** Keep these open while you build:
 

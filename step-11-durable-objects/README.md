@@ -12,9 +12,9 @@ This bootcamp is the hands-on companion to [The AI Agent Factory](https://agentf
 
 > **Note:** The book mentions Durable Objects only in passing (in the connectors field guide), not in a lesson yet. The lessons below give the ideas this step relies on. Use the [Durable Objects docs](https://developers.cloudflare.com/durable-objects/) for the feature itself.
 
-- [17.4 Stateless servers](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/stateless-servers/). Why the Worker keeps nothing in memory, and why state needs a shared place every copy can reach.
-- [17.9 Charging for a connector](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/charging-for-a-connector/). A plan check on every call, which needs an exact per-user count.
-- [18.11 One order slip per request](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/one-order-slip-per-request/). Nothing on a shared note, and where call counts for rate limits belong.
+- [17.4 What if a different copy answers the next call?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/stateless-servers/). Why the Worker keeps nothing in memory, and why state needs a shared place every copy can reach.
+- [17.9 How do you charge for a connector?](https://agentfactory.panaversity.org/building-ai-workers/connectors-and-mcp/charging-for-a-connector/). A plan check on every call, which needs an exact per-user count.
+- [18.11 Can one company's answer reach another by accident?](https://agentfactory.panaversity.org/building-ai-workers/securing-connectors/one-order-slip-per-request/). Nothing on a shared note, and where call counts for rate limits belong.
 - *Optional:* [19.9 What if the last call's company is still set?](https://agentfactory.panaversity.org/building-ai-workers/business-data-and-retrieval/one-company-per-transaction/). Keeping one user's state from leaking into another's.
 
 **Official docs.** Keep these open while you build:
