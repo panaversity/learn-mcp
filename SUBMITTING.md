@@ -96,11 +96,11 @@ Tags are final: never move or delete a tag you have submitted, because the grade
 
 ## 8. Submit your work
 
-You submit **once**, through one form, by the deadline shown on the form. You don't fill in a form for each step.
+You submit **once**, through one form, when you have finished, by the deadline shown on the form. You don't fill in a form for each step.
 
 **📝 Submission form: [Build and Sell MCP Apps: Hackathon Submission](https://forms.gle/u1m8F7UjDJxk3J9M6)**
 
-> You can submit before you finish. The form takes one response per person and lets you edit it until the deadline, so come back and update your last step as you go. When a step's checklist says "Submitted in the form", that is the one item to leave for this single submission.
+> The form takes one response per person, and you cannot edit or resubmit it. Submit when you have finished the steps you are entering, and check your links first. When a step's checklist says "Submitted in the form", that is the one item to leave for this single submission.
 
 ### What your fork holds
 
