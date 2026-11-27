@@ -125,7 +125,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] It works in ChatGPT (developer mode)
 - [ ] Screenshots of two different intents producing two different dashboard widgets in **Claude** and **ChatGPT** are saved in `step-19-generative-ui-dashboard/submission/`, with anything private cropped out
 - [ ] Tagged `step-19-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submission form filled in, or your response updated, with this step and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
+- [ ] Submitted in the step form: your fork's URL, this step and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
 
 ## References
 

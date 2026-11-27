@@ -217,17 +217,17 @@ When you add, rename or reorder a step, update all of these together:
 
 ## Students and submissions
 
-This repo is a student assignment. Students **fork** it, work in their fork, and submit through a form (see `SUBMITTING.md`).
+This repo is a student assignment. Students **fork** it, work in their fork, and register once and submit each step through a form (see `SUBMITTING.md`).
 
 - **Never open pull requests to `panaversity/learn-mcp` on a student's behalf**, and never suggest it. Student work stays in their fork.
 - If you are helping a student in their fork, don't commit or push: they review, commit and push in GitHub Desktop. Only if they explicitly ask you to, push to *their fork's* `origin`, never anywhere else.
 - Each finished step is tagged `step-NN-done` (e.g. `step-01-done`) and pushed to the fork.
-- **One form, updated per step.** A student fills the form in once, then edits the same response after each step to change two fields: the latest step finished and that step's live server URL. A step's proof lives in its folder at the tag: screenshots in `submission/`, and the project defence link (milestone steps) in `NOTES.md`. Never ask a student to put a live server URL in their fork, because the fork is public.
+- **Two forms.** A student registers once, with their details and their fork's URL. Then they submit each finished step in the step form: their fork's URL, the step, its live server URL, the project defence link at milestone steps, and the demo video link at step 21. A step's screenshots are not uploaded: they are committed in the step's `submission/` folder, at the tag. Never ask a student to put a live server URL in their fork, because the fork is public.
 - Students deploy to their own Cloudflare and Neon accounts. Never hard-code a maintainer's account IDs, URLs or secrets.
 - Students shouldn't edit bootcamp-owned files (`README.md`, `AGENTS.md`, `SUBMITTING.md`, `.claude/skills/`, step `README.md` files), because that causes conflicts when they sync their fork. Their notes go in `NOTES.md` inside the step folder.
 - Every step README ends with a `## Submission checklist`, placed before `## References`. Keep it when editing a step.
 - At the end of each milestone (steps 4, 8, 10, 15, 18 and 21) students record a **project defence** (`SUBMITTING.md` section 10): a short screen recording explaining one tool end to end and one tenant-isolation decision in their own words. It is a pass-or-fail gate in the rubric, and those steps' submission checklists have a matching item. If milestones change, update the list in `SUBMITTING.md`, the root README and the affected checklists together.
-- Grading follows the rubric in `SUBMITTING.md` (section 9). Keep it consistent with the steps' submission checklists, and keep the form link a clearly marked placeholder until the maintainer supplies it.
+- Grading follows the rubric in `SUBMITTING.md` (section 9). Keep it consistent with the steps' submission checklists, and keep both form links clearly marked placeholders until the maintainer supplies them.
 
 ## Git
 

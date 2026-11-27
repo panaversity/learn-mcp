@@ -137,7 +137,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] It works in ChatGPT (developer mode), with the same exception and NOTES.md entry if ChatGPT doesn't support this extension yet
 - [ ] Screenshots of a report task running and finishing (or a note on client support if it isn't available yet) in **Claude** and **ChatGPT** are saved in `step-14-tasks/submission/`, with anything private cropped out
 - [ ] Tagged `step-14-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submission form filled in, or your response updated, with this step and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
+- [ ] Submitted in the step form: your fork's URL, this step and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
 
 ## References
 

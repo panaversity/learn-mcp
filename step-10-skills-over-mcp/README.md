@@ -142,10 +142,10 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Tenant isolation: the shared skill holds no company's data and uses only company-scoped tools, each company's playbook is listed and served only to that company (tested through `skills/list`, `skills/get` and `resources/read`), and per-company results are never cached as public
 - [ ] It works in claude.ai or Claude Desktop. If Claude doesn't support this extension yet, the rest of the server still works there and your NOTES.md records the support status from the [client support matrix](https://modelcontextprotocol.io/extensions/client-matrix)
 - [ ] It works in ChatGPT (developer mode), with the same exception and NOTES.md entry if ChatGPT doesn't support this extension yet
-- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in your NOTES.md
+- [ ] Project defence recorded (up to five minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and its link ready for the step form
 - [ ] Screenshots of the monthly-sales-review skill and a company playbook in use (or a note on client support if it isn't available yet) in **Claude** and **ChatGPT** are saved in `step-10-skills-over-mcp/submission/`, with anything private cropped out
 - [ ] Tagged `step-10-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submission form filled in, or your response updated, with this step and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
+- [ ] Submitted in the step form: your fork's URL, this step, its live server URL and your project defence link (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
 
 ## References
 

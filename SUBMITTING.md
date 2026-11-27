@@ -1,6 +1,6 @@
 # Submitting Your Work
 
-This bootcamp is also an assignment. You do all your work in **your own fork** of this repository, and you submit through one submission form: you fill it in once, then update it as you finish each step.
+This bootcamp is also an assignment. You do all your work in **your own fork** of this repository, you register once, and you submit each finished step through a short form.
 
 > ⛔ **Do not open pull requests to this repository.** Pull requests to `panaversity/learn-mcp` are not how you submit, and they will be closed without review. Your work stays in your fork.
 
@@ -9,6 +9,9 @@ This bootcamp is also an assignment. You do all your work in **your own fork** o
 1. Sign in to GitHub and open https://github.com/panaversity/learn-mcp.
 2. Click **Fork**, then choose your own account as the owner.
 3. Keep the repository name `learn-mcp`, and leave **Copy the `main` branch only** checked.
+4. Register, once: fill in the registration form with your details and your fork's URL (`https://github.com/<your-username>/learn-mcp`).
+
+**📝 Registration form: `TODO: REGISTRATION FORM LINK (the bootcamp team will add it here)`**
 
 Your fork is public, like the original. Never commit secrets (see [Keep secrets out of git](#7-keep-secrets-out-of-git)).
 
@@ -62,7 +65,7 @@ To avoid merge conflicts when you sync:
 - Then work through the steps in order, starting with [`step-01-hello-world/`](step-01-hello-world/).
 - Follow the **Build it with Claude Code** section in each step's README, working in a thread of your bootcamp's Claude project.
 - All your code for a step goes inside that step's folder. Each step starts from a copy of your previous step's code.
-- The proof that a step works goes in the same folder: its screenshots in a `submission/` folder, and your write-up in `NOTES.md` ([Submit the step](#8-submit-the-step) says what each holds).
+- A step's screenshots go in the same folder, in a `submission/` folder ([Submit the step](#8-submit-the-step) says which).
 - Commit often, with clear messages. In GitHub Desktop, read the diff in the **Changes** tab, write a summary such as `step-01: add greet and get_time tools`, click **Commit to main**, then **Push origin**. Claude doesn't commit for you (your project's instructions tell it not to), so every commit is one you have read.
 
 ## 5. Deploy to your own accounts
@@ -85,9 +88,9 @@ When a step is finished, deployed and tested, tag the commit and push the tag in
 
 Check the tag appears under **Tags** on your fork's GitHub page.
 
-Use the tag names `step-01-done`, `step-02-done` … `step-21-done`. The grader reviews the code at your tag, so make sure everything for the step, its screenshots and `NOTES.md` included, is committed before you tag.
+Use the tag names `step-01-done`, `step-02-done` … `step-21-done`. The grader reviews the code at your tag, so make sure everything for the step, its screenshots included, is committed before you tag.
 
-Tags are final: never move or delete a tag you have pushed, because the grader may already be reviewing it. If you need to fix something after tagging, commit the fix, add a new tag with a version suffix (for example `step-01-done-v2`) the same way, and push it. The grader reviews the newest tag for the step.
+Tags are final: never move or delete a tag you have pushed, because the grader may already be reviewing it. If you need to fix something after tagging, commit the fix, add a new tag with a version suffix (for example `step-01-done-v2`) the same way, push it, and submit the step in the form again. The grader reviews the newest tag for the step.
 
 ## 7. Keep secrets out of git
 
@@ -97,45 +100,37 @@ Tags are final: never move or delete a tag you have pushed, because the grader m
 
 ## 8. Submit the step
 
-You submit through **one form**. Fill it in when you finish your first step, then update the same response each time you finish another step. The proof that each step works stays in your fork, in the step's folder.
+Submitting a step takes two things: its screenshots in the step's folder, and one short form entry.
 
-**📝 Submission form: `TODO: FORM LINK (the bootcamp team will add it here)`**
+### Save the screenshots in the step's folder
 
-> Until the link is added, keep each finished step tagged and pushed. You can fill in the form once it opens.
+Before you tag a step, save its screenshots in a `submission/` folder inside the step's folder, and commit them. The step's **Submission checklist** names the screenshots it needs: the step working in claude.ai or Claude Desktop, and the same thing in ChatGPT. Start each file name with `claude-` or `chatgpt-`, for example `step-01-hello-world/submission/claude-greet.png`.
 
-### What each step's folder holds
+Your fork is public, so crop your name, your email and anything else private out of a screenshot before you commit it.
 
-Before you tag a step, its folder holds the proof that the step works:
+### Fill in the step form
 
-| In the step's folder | What it holds |
-| --- | --- |
-| `submission/` | The screenshots the step's **Submission checklist** names: the step working in claude.ai or Claude Desktop, and the same thing in ChatGPT. Start each file name with `claude-` or `chatgpt-`, for example `submission/claude-greet.png` |
-| `NOTES.md` | Your write-up of the step (see [How each step is graded](#9-how-each-step-is-graded)). At steps 4, 8, 10, 15, 18 and 21 it also holds the link to your recorded project defence (see [Defend your project](#10-defend-your-project)) |
+**📝 Step form: `TODO: STEP FORM LINK (the bootcamp team will add it here)`**
 
-Your fork is public, so crop your name, your email and anything else private out of a screenshot before you commit it. For the same reason, your live server URL goes in the form, not in your fork.
+> Until the link is added, keep each finished step tagged and pushed. You can submit every finished step once the form opens.
 
-### What the form asks for
+Sign in with the same Google account you registered with. For each step, the form asks for:
 
 | Field | Example |
 | --- | --- |
-| About you | Your name, how to reach you and where you study. You enter these once |
 | Your fork's URL | `https://github.com/<your-username>/learn-mcp` |
-| Latest step finished | `Step 1` |
-| Live MCP server URL of that step | `https://learn-mcp-step-01.<your-subdomain>.workers.dev/mcp` |
+| Step | `Step 1` |
+| Live MCP server URL | `https://learn-mcp-step-01.<your-subdomain>.workers.dev/mcp` |
+| Defence video (steps 4, 8, 10, 15, 18 and 21 only) | A link to your recorded project defence (see [Defend your project](#10-defend-your-project)) |
+| Demo video (step 21 only) | A link to your capstone demo video of up to three minutes |
 
-### When you finish another step
-
-1. Open the form link again, signed in to the same Google account.
-2. Choose **Edit your response**.
-3. Change **Latest step finished** and **Live MCP server URL of that step**, then submit. Everything else stays as you entered it.
-
-The grader reaches an earlier step's server by changing the step number in your latest URL, so keep each Worker's name as its step set it (`learn-mcp-step-NN`).
+The form doesn't ask for your tag or your screenshots. The tag follows from the step, and the screenshots are in the step's folder at that tag.
 
 Each step's README ends with a **Submission checklist** listing exactly what that step needs.
 
 ## 9. How each step is graded
 
-Each step is graded out of 10. A step passes at 7, and the grader reviews the code at your `step-NN-done` tag and the step's live server.
+Each step is graded out of 10. A step passes at 7, and the grader reviews the code at your `step-NN-done` tag and the live server URL you submit.
 
 | Criterion | Points | What the grader checks |
 | --- | --- | --- |
@@ -148,7 +143,7 @@ Each step is graded out of 10. A step passes at 7, and the grader reviews the co
 
 **Project defence (steps 4, 8, 10, 15, 18 and 21):** these steps end a milestone, and each needs a recorded defence (section 10) as well as the points above. The defence is pass or fail. A step that needs one doesn't pass without it, however many points it scores, and it doesn't pass if the defence shows you can't explain your own code. A failed defence can be re-recorded once.
 
-**Automatic fail for the step:** any way for one company to reach another company's data, a committed secret that wasn't rotated, a step's server that can't be reached at its URL, or code copied from another student.
+**Automatic fail for the step:** any way for one company to reach another company's data, a committed secret that wasn't rotated, a server that can't be reached at the submitted URL, or code copied from another student.
 
 **Capstone (step 21)** is graded out of 20: the 10 points above, plus up to 10 more: every Core row of the requirements table (3), extras that are justified and kept simple, with no technology added without a client need (2), the evaluation results (2), CLIENT.md with the client's acceptance tests (1), the architecture and handover notes (1) and the demo video (1). The capstone also needs its project defence, which is separate from the three-minute demo video: the demo shows the product to a client, and the defence explains the code to the grader.
 
@@ -156,7 +151,7 @@ Each step is graded out of 10. A step passes at 7, and the grader reviews the co
 
 Claude Code writes much of your code, so the bootcamp checks that you understand what it wrote. At the end of each milestone (steps 4, 8, 10, 15, 18 and the step 21 capstone) you record a short **project defence**: a screen recording, with your voice, of you walking through your own code. It is the same conversation a client or an interviewer will have with you.
 
-**Length:** up to five minutes (up to ten for the capstone). **Where:** any link the grader can open without signing in, such as an unlisted YouTube video or a shared Loom or Google Drive file. Put the link in that step's `NOTES.md`.
+**Length:** up to five minutes (up to ten for the capstone). **Where:** any link the grader can open without signing in, such as an unlisted YouTube video or a shared Loom or Google Drive file. Link it in the step form.
 
 Cover these four things, in your own words:
 

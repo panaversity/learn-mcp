@@ -135,7 +135,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] It works in ChatGPT (developer mode)
 - [ ] Screenshots of passing CI, your eval results, and a trace of a tool call from **Claude** or **ChatGPT** are saved in `step-17-testing-and-observability/submission/`, with anything private cropped out
 - [ ] Tagged `step-17-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submission form filled in, or your response updated, with this step and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
+- [ ] Submitted in the step form: your fork's URL, this step and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
 
 ## References
 

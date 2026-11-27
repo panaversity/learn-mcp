@@ -179,11 +179,11 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] Every Core row is implemented, and at least two Extra rows, each justified in NOTES.md (with a fallback where a client doesn't support an extension yet)
 - [ ] NOTES.md has the architecture, evaluation results, setup steps, demo script and price
 - [ ] CLIENT.md has the discovery notes, proposal, price, demo feedback and acceptance test results
-- [ ] Project defence recorded (up to ten minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and linked in your NOTES.md
+- [ ] Project defence recorded (up to ten minutes: it works, one tool end to end, one tenant-isolation decision, one change you made; see [SUBMITTING.md](../SUBMITTING.md#10-defend-your-project)) and its link ready for the step form
 - [ ] Screenshots of at least three different screens chosen from intent in **Claude** and **ChatGPT** are saved in `step-21-capstone-mcp-app/submission/`, with anything private cropped out
-- [ ] A link to a demo video of up to three minutes is in NOTES.md
+- [ ] Demo video of up to three minutes recorded, and its link ready for the step form
 - [ ] Tagged `step-21-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submission form filled in, or your response updated, with this step and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
+- [ ] Submitted in the step form: your fork's URL, this step, its live server URL, your project defence link and your demo video link (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
 
 ## References
 

@@ -128,7 +128,7 @@ Submit through your **fork**, following [SUBMITTING.md](../SUBMITTING.md). ⛔ D
 - [ ] It works in ChatGPT (developer mode), or your NOTES.md records how ChatGPT shows resources and prompts today
 - [ ] Screenshots of a note attached as a resource and a prompt being run in **Claude** and **ChatGPT** (or the MCP Inspector) are saved in `step-03-resources-and-prompts/submission/`, with anything private cropped out
 - [ ] Tagged `step-03-done` and pushed (in GitHub Desktop: **History**, right-click the commit, **Create Tag…**, then **Push origin**)
-- [ ] Submission form filled in, or your response updated, with this step and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
+- [ ] Submitted in the step form: your fork's URL, this step and its live server URL (see [SUBMITTING.md](../SUBMITTING.md#8-submit-the-step))
 
 ## References
 
