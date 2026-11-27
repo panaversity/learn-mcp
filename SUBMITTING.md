@@ -1,6 +1,6 @@
 # Submitting Your Work
 
-This bootcamp is also an assignment. You do all your work in **your own fork** of this repository, and you submit each finished step through the submission form (it [opens later](#8-submit-the-step); build and tag your steps in the meantime).
+This bootcamp is also an assignment. You do all your work in **your own fork** of this repository, and you submit each finished step through the [submission form](#8-submit-the-step).
 
 > ⛔ **Do not open pull requests to this repository.** Pull requests to `panaversity/learn-mcp` are not how you submit, and they will be closed without review. Your work stays in your fork.
 
@@ -98,20 +98,26 @@ Tags are final: never move or delete a tag you have submitted, because the grade
 
 Submit each step through the form:
 
-**📝 Submission form: graded submissions are not open yet. They will open later, and the link to the form will be added here.**
+**📝 Submission form: [Build and Sell MCP Apps: Step Submission](https://docs.google.com/forms/d/e/1FAIpQLSeoVfaXBmWp65CA1nau3H-x7MCaXEgme2lLBm_ltddOP1fgSg/viewform)**
 
-> You don't have to wait for the form to start building. Keep each finished step tagged and pushed, keep its server running, and submit every finished step once the form opens. When a step's checklist says "Submitted in the form", that is the one item to leave until then.
+> Fill in the form once for each finished step, after you have tagged and pushed it. You sign in with a Google account, and the form records your email with each submission. Keep the step's server running until it is graded.
 
 For each step, the form asks for:
 
 | Field | Example |
 | --- | --- |
+| Your full name | As you want it on your record |
+| Where you study | PIAIC, GIAIC, Panaversity, or none of these |
+| Roll number or student ID | Only if you study at PIAIC, GIAIC or Panaversity |
 | Your fork's URL | `https://github.com/<your-username>/learn-mcp` |
-| Step tag | `step-01-done` |
+| Step tag | `step-01-done`, typed exactly as you pushed it (or `step-01-done-v2` after a fix) |
 | Live MCP server URL | `https://learn-mcp-step-01.<your-subdomain>.workers.dev/mcp` |
 | Screenshot: Claude | The step's tool or widget working in claude.ai or Claude Desktop |
 | Screenshot: ChatGPT | The same thing working in ChatGPT |
 | Defence video (steps 4, 8, 10, 15, 18 and 21 only) | A link to your recorded project defence (see [Defend your project](#10-defend-your-project)) |
+| Demo video (step 21 only) | A link to your capstone demo video of up to three minutes |
+
+Also commit both screenshots in the step's folder, named `claude.png` and `chatgpt.png`, before you tag, so they stay with the code the grader reads. Your fork is public, so crop your name, your email and anything else private out of them first.
 
 Each step's README ends with a **Submission checklist** listing exactly what that step needs.
 

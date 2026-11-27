@@ -228,7 +228,7 @@ This repo is a student assignment. Students **fork** it, work in their fork, and
 - Students shouldn't edit bootcamp-owned files (`README.md`, `AGENTS.md`, `SUBMITTING.md`, `.claude/skills/`, step `README.md` files), because that causes conflicts when they sync their fork. Their notes go in `NOTES.md` inside the step folder.
 - Every step README ends with a `## Submission checklist`, placed before `## References`. Keep it when editing a step.
 - At the end of each milestone (steps 4, 8, 10, 15, 18 and 21) students record a **project defence** (`SUBMITTING.md` section 10): a short screen recording explaining one tool end to end and one tenant-isolation decision in their own words. It is a pass-or-fail gate in the rubric, and those steps' submission checklists have a matching item. If milestones change, update the list in `SUBMITTING.md`, the root README and the affected checklists together.
-- Grading follows the rubric in `SUBMITTING.md` (section 9). Keep it consistent with the steps' submission checklists, and until the maintainer supplies the form link, keep section 8's statement that graded submissions open later and that the link will be added there. Never invent a link.
+- Grading follows the rubric in `SUBMITTING.md` (section 9). Keep it consistent with the steps' submission checklists, and keep its form table matching the live form, whose link in section 8 the maintainer supplied. Never change that link or invent one.
 
 ## Git
 
