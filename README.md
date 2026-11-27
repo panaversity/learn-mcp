@@ -133,7 +133,7 @@ This bootcamp is also an assignment, and you do all your work in **your own fork
 
 To avoid merge conflicts, don't edit the bootcamp's own files (`README.md`, `AGENTS.md`, `SUBMITTING.md`, `.claude/skills/`, or the `README.md` in each step folder). Put your own notes in a `NOTES.md` inside the step folder.
 
-**5. Work, tag and submit.** Build each step in its folder, deploy it to your own Cloudflare (and Neon) accounts, commit and tag it in GitHub Desktop (in **History**, right-click the commit, choose **Create Tag…** and name it `step-01-done`, then click **Push origin**), and submit it through the form. **[SUBMITTING.md](SUBMITTING.md)** has the full details: tagging, keeping secrets out of your public fork, and exactly what to submit for each step.
+**5. Work, tag and submit.** Build each step in its folder, deploy it to your own Cloudflare (and Neon) accounts, commit and tag it in GitHub Desktop (in **History**, right-click the commit, choose **Create Tag…** and name it `step-01-done`, then click **Push origin**). When you are done, submit once through the form. **[SUBMITTING.md](SUBMITTING.md)** has the full details: tagging, keeping secrets out of your public fork, and exactly what to submit for each step.
 
 ### Built-in skills
 

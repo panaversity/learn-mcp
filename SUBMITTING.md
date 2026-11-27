@@ -1,6 +1,6 @@
 # Submitting Your Work
 
-This bootcamp is also an assignment. You do all your work in **your own fork** of this repository, and you submit each finished step through the [submission form](#8-submit-the-step).
+This bootcamp is also an assignment. You do all your work in **your own fork** of this repository, and you submit once, through the [submission form](#8-submit-your-work).
 
 > ⛔ **Do not open pull requests to this repository.** Pull requests to `panaversity/learn-mcp` are not how you submit, and they will be closed without review. Your work stays in your fork.
 
@@ -86,7 +86,7 @@ Check the tag appears under **Tags** on your fork's GitHub page.
 
 Use the tag names `step-01-done`, `step-02-done` … `step-21-done`. The grader reviews the code at your tag, so make sure everything for the step is committed before you tag.
 
-Tags are final: never move or delete a tag you have submitted, because the grader may already be reviewing it. If you need to fix something after tagging, commit the fix, add a new tag with a version suffix (for example `step-01-done-v2`) the same way, push it, and submit that tag in the form.
+Tags are final: never move or delete a tag you have submitted, because the grader may already be reviewing it. If you need to fix something after tagging, commit the fix, add a new tag with a version suffix (for example `step-01-done-v2`) the same way, and push it. The grader reads the newest tag for the step.
 
 ## 7. Keep secrets out of git
 
@@ -94,30 +94,39 @@ Tags are final: never move or delete a tag you have submitted, because the grade
 - Never commit `.dev.vars`, API keys, database connection strings or tokens. Commit a `.dev.vars.example` with placeholder values instead.
 - If you commit a secret by accident, **rotate it right away** (create a new key or password). Deleting the commit isn't enough, because your fork is public.
 
-## 8. Submit the step
+## 8. Submit your work
 
-Submit each step through the form:
+You submit **once**, through one form, by the deadline shown on the form. You don't fill in a form for each step.
 
-**📝 Submission form: [Build and Sell MCP Apps: Step Submission](https://docs.google.com/forms/d/e/1FAIpQLSeoVfaXBmWp65CA1nau3H-x7MCaXEgme2lLBm_ltddOP1fgSg/viewform)**
+**📝 Submission form: [Build and Sell MCP Apps: Hackathon Submission](https://forms.gle/u1m8F7UjDJxk3J9M6)**
 
-> Fill in the form once for each finished step, after you have tagged and pushed it. You sign in with a Google account, and the form records your email with each submission. Keep the step's server running until it is graded.
+> You can submit before you finish. The form takes one response per person and lets you edit it until the deadline, so come back and update your last step as you go. When a step's checklist says "Submitted in the form", that is the one item to leave for this single submission.
 
-For each step, the form asks for:
+### What your fork holds
+
+Your work is judged from your fork, so push everything before you submit. For each step you finished, your fork holds:
+
+- the step's code, in its folder, at its `step-NN-done` tag
+- two screenshots in the step's folder: `claude.png`, showing the step's tool or widget working in claude.ai or Claude Desktop, and `chatgpt.png`, showing the same thing in ChatGPT
+- your `NOTES.md` for the step
+
+Your fork is public, so crop your name, your email and anything else private out of a screenshot before you commit it.
+
+### What the form asks for
 
 | Field | Example |
 | --- | --- |
 | Your full name | As you want it on your record |
+| WhatsApp number | With the country code, such as `+92 300 1234567` |
 | Where you study | PIAIC, GIAIC, Panaversity, or none of these |
 | Roll number or student ID | Only if you study at PIAIC, GIAIC or Panaversity |
 | Your fork's URL | `https://github.com/<your-username>/learn-mcp` |
-| Step tag | `step-01-done`, typed exactly as you pushed it (or `step-01-done-v2` after a fix) |
-| Live MCP server URL | `https://learn-mcp-step-01.<your-subdomain>.workers.dev/mcp` |
-| Link to your Claude screenshot | `https://github.com/<your-username>/learn-mcp/blob/main/step-01-hello-world/claude.png` |
-| Link to your ChatGPT screenshot | `https://github.com/<your-username>/learn-mcp/blob/main/step-01-hello-world/chatgpt.png` |
-| Defence video (steps 4, 8, 10, 15, 18 and 21 only) | A link to your recorded project defence (see [Defend your project](#10-defend-your-project)) |
-| Demo video (step 21 only) | A link to your capstone demo video of up to three minutes |
+| Last step you completed | `Step 8` |
+| Live MCP server URL of that step | `https://learn-mcp-step-08.<your-subdomain>.workers.dev/mcp` |
+| Project defence video (optional) | A link to your latest recorded project defence (see [Defend your project](#10-defend-your-project)) |
+| Confirmation | A tick that you have pushed the steps you are submitting and are ready to submit |
 
-The screenshots live in your fork, and the form takes their links. Before you tag a step, commit two screenshots in the step's folder: `claude.png`, showing the step's tool or widget working in claude.ai or Claude Desktop, and `chatgpt.png`, showing the same thing in ChatGPT. Your fork is public, so crop your name, your email and anything else private out of them first. To get a screenshot's link, open the file in your fork on github.com and copy the address from your browser.
+The form asks for one server URL. Keep every step's Worker named as its step set it (`learn-mcp-step-NN`) and running, so the grader can reach an earlier step by changing the step number.
 
 Each step's README ends with a **Submission checklist** listing exactly what that step needs.
 
@@ -144,7 +153,7 @@ Each step is graded out of 10. A step passes at 7, and the grader reviews the co
 
 Claude Code writes much of your code, so the bootcamp checks that you understand what it wrote. At the end of each milestone (steps 4, 8, 10, 15, 18 and the step 21 capstone) you record a short **project defence**: a screen recording, with your voice, of you walking through your own code. It is the same conversation a client or an interviewer will have with you.
 
-**Length:** up to five minutes (up to ten for the capstone). **Where:** any link the grader can open without signing in, such as an unlisted YouTube video or a shared Loom or Google Drive file. Link it in the form with the step.
+**Length:** up to five minutes (up to ten for the capstone). **Where:** any link the grader can open without signing in, such as an unlisted YouTube video or a shared Loom or Google Drive file. Put each defence's link in that step's `NOTES.md`, and your latest one in the form.
 
 Cover these four things, in your own words:
 

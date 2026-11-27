@@ -219,7 +219,7 @@ When you add, rename or reorder a step, update all of these together:
 
 ## Students and submissions
 
-This repo is a student assignment. Students **fork** it, work in their fork, and submit through a form (see `SUBMITTING.md`).
+This repo is a student assignment. Students **fork** it, work in their fork, and submit once through a form (see `SUBMITTING.md`).
 
 - **Never open pull requests to `panaversity/learn-mcp` on a student's behalf**, and never suggest it. Student work stays in their fork.
 - If you are helping a student in their fork, don't commit or push: they review, commit and push in GitHub Desktop. Only if they explicitly ask you to, push to *their fork's* `origin`, never anywhere else.
