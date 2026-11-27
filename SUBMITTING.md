@@ -112,12 +112,12 @@ For each step, the form asks for:
 | Your fork's URL | `https://github.com/<your-username>/learn-mcp` |
 | Step tag | `step-01-done`, typed exactly as you pushed it (or `step-01-done-v2` after a fix) |
 | Live MCP server URL | `https://learn-mcp-step-01.<your-subdomain>.workers.dev/mcp` |
-| Screenshot: Claude | The step's tool or widget working in claude.ai or Claude Desktop |
-| Screenshot: ChatGPT | The same thing working in ChatGPT |
+| Link to your Claude screenshot | `https://github.com/<your-username>/learn-mcp/blob/main/step-01-hello-world/claude.png` |
+| Link to your ChatGPT screenshot | `https://github.com/<your-username>/learn-mcp/blob/main/step-01-hello-world/chatgpt.png` |
 | Defence video (steps 4, 8, 10, 15, 18 and 21 only) | A link to your recorded project defence (see [Defend your project](#10-defend-your-project)) |
 | Demo video (step 21 only) | A link to your capstone demo video of up to three minutes |
 
-Also commit both screenshots in the step's folder, named `claude.png` and `chatgpt.png`, before you tag, so they stay with the code the grader reads. Your fork is public, so crop your name, your email and anything else private out of them first.
+The screenshots live in your fork, and the form takes their links. Before you tag a step, commit two screenshots in the step's folder: `claude.png`, showing the step's tool or widget working in claude.ai or Claude Desktop, and `chatgpt.png`, showing the same thing in ChatGPT. Your fork is public, so crop your name, your email and anything else private out of them first. To get a screenshot's link, open the file in your fork on github.com and copy the address from your browser.
 
 Each step's README ends with a **Submission checklist** listing exactly what that step needs.
 
