@@ -84,7 +84,7 @@ Copy my step-08 code into step-09-generative-ui-mcp-apps/ so I can build on it. 
 **2. Switch to plan mode and plan the widgets.**
 
 ```text
-Use the build-mcp-app skill. Plan how to add MCP Apps widgets to this server using React and the standard @modelcontextprotocol/ext-apps APIs only, with nothing Claude-specific or ChatGPT-specific, so it works in both. Use the current 2.x release of @modelcontextprotocol/ext-apps, which works with the MCP SDK v2 this server uses; the skill's examples pin 1.2.2, which needs SDK v1. Propose the build setup for bundling widgets.
+Use the build-mcp-app skill. Plan how to add MCP Apps widgets to this server using React and the standard @modelcontextprotocol/ext-apps APIs only, with nothing Claude-specific or ChatGPT-specific, so it works in both. Use the current 2.x release of @modelcontextprotocol/ext-apps with the MCP SDK v2 this server already uses; the skill's server examples import the older v1 SDK package, so adapt them. Propose the build setup for bundling widgets.
 ```
 
 **3. Set up the widget build.**

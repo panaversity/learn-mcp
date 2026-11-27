@@ -19,6 +19,6 @@ folders and update the commit hash above.
 `McpAgent` class, which Cloudflare has since deprecated. The course steps use the stateless
 `createMcpHandler` instead, and their prompts say so; follow the step prompts where they differ.
 
-**Known difference:** `build-mcp-app` pins `@modelcontextprotocol/ext-apps@1.2.2`, which needs version 1 of
-the MCP SDK (`@modelcontextprotocol/sdk`). The bootcamp steps use MCP SDK v2, so they need the 2.x release of
-`@modelcontextprotocol/ext-apps` (2.0.4 on 27 November 2026). Step 9's prompt says so; follow it.
+**Known difference:** `build-mcp-app`'s server examples import version 1 of the MCP SDK
+(`@modelcontextprotocol/sdk`). The bootcamp steps use MCP SDK v2 (`@modelcontextprotocol/server`), which is
+also what the 2.x release of `@modelcontextprotocol/ext-apps` requires. Step 9's prompt says so; follow it.

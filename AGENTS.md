@@ -169,7 +169,7 @@ If a step's `package.json` defines different scripts, follow that file. When you
 - `build-mcp-app`: MCP Apps widgets, iframe sandbox and payload budgeting.
 - `build-mcpb`: packaging local servers as bundles. This bootcamp mostly builds remote servers, so it is rarely needed.
 
-Use these skills when building steps. **Don't edit the vendored files.** Note that the vendored `build-mcp-server` Cloudflare reference (`references/deploy-cloudflare-workers.md`, last verified upstream 2026-03) still shows the deprecated `McpAgent` class. This bootcamp uses `createMcpHandler` instead, and the step prompts say so explicitly; keep them that way until upstream catches up. The vendored `build-mcp-app` skill also pins `@modelcontextprotocol/ext-apps@1.2.2`, which needs MCP SDK v1; this bootcamp uses MCP SDK v2, so widgets use the 2.x release of `@modelcontextprotocol/ext-apps`, and step 9's prompt says so. To update them, follow `.claude/skills/README.md`.
+Use these skills when building steps. **Don't edit the vendored files.** Note that the vendored `build-mcp-server` Cloudflare reference (`references/deploy-cloudflare-workers.md`, last verified upstream 2026-03) still shows the deprecated `McpAgent` class. This bootcamp uses `createMcpHandler` instead, and the step prompts say so explicitly; keep them that way until upstream catches up. The vendored `build-mcp-app` skill's server examples also import MCP SDK v1 (`@modelcontextprotocol/sdk`); this bootcamp uses MCP SDK v2, which the 2.x release of `@modelcontextprotocol/ext-apps` requires, and step 9's prompt says so. To update them, follow `.claude/skills/README.md`.
 
 ## Writing step READMEs
 
